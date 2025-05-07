@@ -10,9 +10,13 @@
 			"types": "./dist/client.d.ts",
 			"default": "./src/client.ts"
 		},
+		"./schema": {
+			"types": "./dist/index.d.ts",
+			"default": "./src/index.ts"
+		},
 		"./schema/*": {
 			"types": "./dist/schema/*.d.ts",
-			"default": "./src/schema/index.ts"
+			"default": "./src/schema/*.ts"
 		}
 	},
 	"scripts": {
@@ -32,7 +36,7 @@
 		"pg": "^8.15.6"
 	},
 	"devDependencies": {
-		"@base/typescript": "^workspace:",
+		"@base/typescript": "workspace:",
 		"@types/bun": "^1.2.12",
 		"@types/pg": "^8.15.0",
 		"drizzle-kit": "^0.31.1",

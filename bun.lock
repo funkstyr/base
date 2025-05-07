@@ -120,6 +120,20 @@
         "vite": "^6.3.5",
       },
     },
+    "packages/auth": {
+      "name": "@base/auth",
+      "dependencies": {
+        "@base/db": "workspace:^",
+        "better-auth": "^1.2.7",
+        "dotenv": "^16.5.0",
+      },
+      "devDependencies": {
+        "@base/typescript": "^workspace:",
+        "@types/bun": "^1.2.12",
+        "tsc-alias": "^1.8.16",
+        "typescript": "^5.8.3",
+      },
+    },
     "packages/db": {
       "name": "@base/db",
       "dependencies": {
@@ -353,6 +367,8 @@
     "@babel/traverse--for-generate-function-map": ["@babel/traverse@7.27.1", "", { "dependencies": { "@babel/code-frame": "^7.27.1", "@babel/generator": "^7.27.1", "@babel/parser": "^7.27.1", "@babel/template": "^7.27.1", "@babel/types": "^7.27.1", "debug": "^4.3.1", "globals": "^11.1.0" } }, "sha512-ZCYtZciz1IWJB4U61UPu4KEaqyfj+r5T1Q5mqPo+IBpcG9kHv30Z0aD8LXPgC1trYa6rK0orRyAhqUgk4MjmEg=="],
 
     "@babel/types": ["@babel/types@7.27.1", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.27.1" } }, "sha512-+EzkxvLNfiUeKMgy/3luqfsCWFRXLb7U6wNQTk60tovuckwB15B191tJWvpp4HjiQWdJkCxO3Wbvc6jlk3Xb2Q=="],
+
+    "@base/auth": ["@base/auth@workspace:packages/auth"],
 
     "@base/db": ["@base/db@workspace:packages/db"],
 

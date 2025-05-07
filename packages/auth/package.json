@@ -1,0 +1,30 @@
+{
+	"name": "@base/auth",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./src/index.ts"
+		},
+		"./*": {
+			"types": "./dist/*.d.ts",
+			"default": "./src/*.ts"
+		}
+	},
+	"scripts": {
+		"dev": "tsc --watch",
+		"build": "tsc && tsc-alias",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@base/db": "workspace:^",
+		"better-auth": "^1.2.7",
+		"dotenv": "^16.5.0"
+	},
+	"devDependencies": {
+		"@base/typescript": "workspace:",
+		"@types/bun": "^1.2.12",
+		"tsc-alias": "^1.8.16",
+		"typescript": "^5.8.3"
+	}
+}
