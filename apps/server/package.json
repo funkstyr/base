@@ -1,0 +1,34 @@
+{
+	"name": "server",
+	"main": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"build": "tsc && tsc-alias",
+		"check-types": "tsc --noEmit",
+		"compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
+		"dev": "bun run --hot src/index.ts",
+		"start": "bun run dist/src/index.js",
+		"db:push": "drizzle-kit push",
+		"db:studio": "drizzle-kit studio",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate"
+	},
+	"dependencies": {
+		"@better-auth/expo": "^1.2.7",
+		"@orpc/client": "^1.2.0",
+		"@orpc/server": "^1.2.0",
+		"better-auth": "^1.2.7",
+		"dotenv": "^16.5.0",
+		"drizzle-orm": "^0.43.1",
+		"hono": "^4.7.8",
+		"pg": "^8.15.6",
+		"zod": "^3.24.4"
+	},
+	"devDependencies": {
+		"@types/bun": "^1.2.12",
+		"@types/pg": "^8.15.0",
+		"drizzle-kit": "^0.31.1",
+		"tsc-alias": "^1.8.16",
+		"typescript": "^5.8.3"
+	}
+}
