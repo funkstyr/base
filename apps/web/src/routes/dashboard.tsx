@@ -15,6 +15,7 @@ function RouteComponent() {
 
 	const privateData = useQuery(orpc.privateData.queryOptions());
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	useEffect(() => {
 		if (!session && !isPending) {
 			navigate({
