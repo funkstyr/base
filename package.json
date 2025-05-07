@@ -1,7 +1,7 @@
 {
 	"name": "base",
 	"private": true,
-	"workspaces": ["apps/*", "packages/*"],
+	"workspaces": ["apps/*", "packages/*", "tools/*"],
 	"scripts": {
 		"check": "biome check --write .",
 		"check-types": "turbo check-types",

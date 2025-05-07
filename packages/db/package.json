@@ -1,0 +1,42 @@
+{
+	"name": "@base/db",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./src/index.ts"
+		},
+		"./client": {
+			"types": "./dist/client.d.ts",
+			"default": "./src/client.ts"
+		},
+		"./schema/*": {
+			"types": "./dist/schema/*.d.ts",
+			"default": "./src/schema/index.ts"
+		}
+	},
+	"scripts": {
+		"dev": "tsc --watch",
+		"build": "tsc && tsc-alias",
+		"check-types": "tsc --noEmit",
+		"db:push": "drizzle-kit push",
+		"db:studio": "drizzle-kit studio",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate"
+	},
+	"dependencies": {
+		"arktype": "^2.1.20",
+		"dotenv": "^16.5.0",
+		"drizzle-arktype": "^0.1.2",
+		"drizzle-orm": "^0.43.1",
+		"pg": "^8.15.6"
+	},
+	"devDependencies": {
+		"@base/typescript": "^workspace:",
+		"@types/bun": "^1.2.12",
+		"@types/pg": "^8.15.0",
+		"drizzle-kit": "^0.31.1",
+		"tsc-alias": "^1.8.16",
+		"typescript": "^5.8.3"
+	}
+}

@@ -8,10 +8,10 @@
 		"compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
 		"dev": "bun run --hot src/index.ts",
 		"start": "bun run dist/src/index.js",
-		"db:push": "drizzle-kit push",
-		"db:studio": "drizzle-kit studio",
-		"db:generate": "drizzle-kit generate",
-		"db:migrate": "drizzle-kit migrate"
+		"_db:push": "drizzle-kit push",
+		"_db:studio": "drizzle-kit studio",
+		"_db:generate": "drizzle-kit generate",
+		"_db:migrate": "drizzle-kit migrate"
 	},
 	"dependencies": {
 		"@better-auth/expo": "^1.2.7",
