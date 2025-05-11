@@ -12,7 +12,9 @@ export const todo = pgTable("todo", {
 	completed: boolean("completed").default(false).notNull(),
 });
 
+//? how to get id to be undefined/optional for create procedure
 export const todoInsertSchema = createInsertSchema(todo, {
+	id: (schema) => type.undefined,
 	text: (schema) =>
 		type.pipe(
 			schema,
@@ -22,4 +24,8 @@ export const todoInsertSchema = createInsertSchema(todo, {
 });
 
 export const todoSelectSchema = createSelectSchema(todo);
-export const todoUpdateSchema = createUpdateSchema(todo);
+
+//? how to get id to be string and not optional
+export const todoUpdateSchema = createUpdateSchema(todo, {
+	id: (schema) => type.string,
+});

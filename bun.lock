@@ -120,6 +120,25 @@
         "vite": "^6.3.5",
       },
     },
+    "packages/api": {
+      "name": "@base/api",
+      "dependencies": {
+        "@base/auth": "workspace:^",
+        "@base/db": "workspace:^",
+        "@orpc/client": "^1.2.0",
+        "@orpc/server": "^1.2.0",
+        "arktype": "^2.1.20",
+        "dotenv": "^16.5.0",
+        "drizzle-orm": "^0.43.1",
+        "hono": "^4.7.8",
+      },
+      "devDependencies": {
+        "@base/typescript": "workspace:",
+        "@types/bun": "^1.2.12",
+        "tsc-alias": "^1.8.16",
+        "typescript": "^5.8.3",
+      },
+    },
     "packages/auth": {
       "name": "@base/auth",
       "dependencies": {
@@ -128,7 +147,7 @@
         "dotenv": "^16.5.0",
       },
       "devDependencies": {
-        "@base/typescript": "^workspace:",
+        "@base/typescript": "workspace:",
         "@types/bun": "^1.2.12",
         "tsc-alias": "^1.8.16",
         "typescript": "^5.8.3",
@@ -144,7 +163,7 @@
         "pg": "^8.15.6",
       },
       "devDependencies": {
-        "@base/typescript": "^workspace:",
+        "@base/typescript": "workspace:",
         "@types/bun": "^1.2.12",
         "@types/pg": "^8.15.0",
         "drizzle-kit": "^0.31.1",
@@ -367,6 +386,8 @@
     "@babel/traverse--for-generate-function-map": ["@babel/traverse@7.27.1", "", { "dependencies": { "@babel/code-frame": "^7.27.1", "@babel/generator": "^7.27.1", "@babel/parser": "^7.27.1", "@babel/template": "^7.27.1", "@babel/types": "^7.27.1", "debug": "^4.3.1", "globals": "^11.1.0" } }, "sha512-ZCYtZciz1IWJB4U61UPu4KEaqyfj+r5T1Q5mqPo+IBpcG9kHv30Z0aD8LXPgC1trYa6rK0orRyAhqUgk4MjmEg=="],
 
     "@babel/types": ["@babel/types@7.27.1", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.27.1" } }, "sha512-+EzkxvLNfiUeKMgy/3luqfsCWFRXLb7U6wNQTk60tovuckwB15B191tJWvpp4HjiQWdJkCxO3Wbvc6jlk3Xb2Q=="],
+
+    "@base/api": ["@base/api@workspace:packages/api"],
 
     "@base/auth": ["@base/auth@workspace:packages/auth"],
 
