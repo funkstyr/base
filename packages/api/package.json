@@ -20,11 +20,11 @@
 		"arktype": "^2.1.20",
 		"dotenv": "^16.5.0",
 		"drizzle-orm": "^0.43.1",
-		"hono": "^4.7.8"
+		"hono": "^4.7.9"
 	},
 	"devDependencies": {
 		"@base/typescript": "workspace:",
-		"@types/bun": "^1.2.12",
+		"@types/bun": "^1.2.13",
 		"tsc-alias": "^1.8.16",
 		"typescript": "^5.8.3"
 	}

@@ -1,7 +1,11 @@
 {
 	"name": "base",
 	"private": true,
-	"workspaces": ["apps/*", "packages/*", "tools/*"],
+	"workspaces": [
+		"apps/*",
+		"packages/*",
+		"tools/*"
+	],
 	"scripts": {
 		"check": "biome check --write .",
 		"check-types": "turbo check-types",
@@ -21,5 +25,5 @@
 		"@biomejs/biome": "1.9.4",
 		"turbo": "^2.5.3"
 	},
-	"packageManager": "bun@1.2.12"
+	"packageManager": "bun@1.2.13"
 }
