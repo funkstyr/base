@@ -16,6 +16,10 @@
       "types": "./dist/lib/*.d.ts",
       "default": "./src/lib/*.ts"
     },
+    "./components/app-sidebar": {
+      "types": "./dist/components/app-sidebar/index.d.ts",
+      "default": "./src/components/app-sidebar/index.tsx"
+    },
     "./components/*": {
       "types": "./dist/components/*.d.ts",
       "default": "./src/components/*.tsx"

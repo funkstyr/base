@@ -4,7 +4,6 @@
   "display": "React Package",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "lib": ["es2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext"
+    "lib": ["es2022", "DOM", "DOM.Iterable"]
   }
 }
