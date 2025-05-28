@@ -1,0 +1,66 @@
+{
+  "folders": [
+    {
+      "name": "root",
+      "path": ".",
+    },
+    {
+      "name": "apps",
+      "path": "apps",
+    },
+    {
+      "name": "packages",
+      "path": "packages",
+    },
+    {
+      "name": "tools",
+      "path": "tools",
+    },
+  ],
+  "extensions": {
+    "recommendations": [
+      "biomejs.biome",
+      "streetsidesoftware.code-spell-checker",
+      "yoavbls.pretty-ts-errors",
+      "usernamehw.errorlens",
+      "eamodio.gitlens",
+      "visualstudioexptteam.vscodeintellicode",
+      "ms-playwright.playwright",
+      "vitest.explorer",
+      "bradlc.vscode-tailwindcss",
+      "coderabbit.coderabbit-vscode",
+    ],
+  },
+  "settings": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.rulers": [80],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never",
+      "source.addMissingImports": "explicit",
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll": "explicit",
+    },
+    "npm.packageManager": "bun",
+
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/coverage": true,
+      "**/dist": true,
+      "**/build": true,
+      "**/.build": true,
+      "**/.gh-pages": true,
+      "**/.next": true,
+      "**/out": true,
+      "**/playwright-report": true,
+      "**/storybook-static": true,
+      "**/bun.lock": true,
+      "**/package-lock.json": true,
+      "**/pnpm-lock.yaml": true,
+      "**/.gitignore": true,
+      "**/*.tsbuildinfo": true,
+      "**/tsbuildinfo.json": true,
+    },
+    "cSpell.words": ["clsx", "tanstack", "tiptap"],
+  },
+}
