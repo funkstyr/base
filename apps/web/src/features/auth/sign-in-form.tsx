@@ -1,12 +1,13 @@
-import { authClient } from "@/lib/auth-client";
 import { useForm } from "@tanstack/react-form";
 import { useNavigate } from "@tanstack/react-router";
+import { type } from "arktype";
 import { toast } from "sonner";
-import { z } from "zod";
-import Loader from "./loader";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+
+import { authClient } from "@/lib/auth-client";
+import { Button } from "@base/ui/components/button";
+import { Input } from "@base/ui/components/input";
+import { Label } from "@base/ui/components/label";
+import { Loader } from "@base/ui/components/loader";
 
 export default function SignInForm({
   onSwitchToSignUp,
@@ -43,9 +44,9 @@ export default function SignInForm({
       );
     },
     validators: {
-      onSubmit: z.object({
-        email: z.string().email("Invalid email address"),
-        password: z.string().min(8, "Password must be at least 8 characters"),
+      onSubmit: type({
+        email: "string.email",
+        password: type.string.atLeastLength(8),
       }),
     },
   });

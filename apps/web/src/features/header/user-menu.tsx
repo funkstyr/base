@@ -1,3 +1,7 @@
+import { Link, useNavigate } from "@tanstack/react-router";
+
+import { authClient } from "@/lib/auth-client";
+import { Button } from "@base/ui/components/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -5,14 +9,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { authClient } from "@/lib/auth-client";
-import { useNavigate } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
-import { Button } from "./ui/button";
-import { Skeleton } from "./ui/skeleton";
+} from "@base/ui/components/dropdown-menu";
+import { Skeleton } from "@base/ui/components/skeleton";
 
-export default function UserMenu() {
+export function UserMenu() {
   const navigate = useNavigate();
   const { data: session, isPending } = authClient.useSession();
 
@@ -31,12 +31,12 @@ export default function UserMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">{session.user.name}</Button>
+        <Button variant="outline">{session?.user?.name}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-card">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>{session.user.email}</DropdownMenuItem>
+        <DropdownMenuItem>{session?.user?.email}</DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Button
             variant="destructive"

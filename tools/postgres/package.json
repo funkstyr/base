@@ -3,6 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "dev": "docker run --name base_pg -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:latest"
+    "_dev": "docker run --name base_pg -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres:latest"
   }
 }

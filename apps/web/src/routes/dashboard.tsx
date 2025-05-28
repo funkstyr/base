@@ -1,8 +1,9 @@
-import { authClient } from "@/lib/auth-client";
-import { orpc } from "@/utils/orpc";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+
+import { authClient } from "@/lib/auth-client";
+import { orpc } from "@/lib/orpc-client";
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent,
@@ -31,7 +32,7 @@ function RouteComponent() {
   return (
     <div>
       <h1>Dashboard</h1>
-      <p>Welcome {session?.user.name}</p>
+      <p>Welcome {session?.user?.name}</p>
       <p>privateData: {privateData.data?.message}</p>
     </div>
   );

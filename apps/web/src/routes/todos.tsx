@@ -1,19 +1,20 @@
-import { Button } from "@/components/ui/button";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { createFileRoute } from "@tanstack/react-router";
+import { Loader2, Trash2 } from "lucide-react";
+import { useState } from "react";
+
+import { orpc } from "@/lib/orpc-client";
+import type { TodoUpdateSchema } from "@base/db/schema/todo";
+import { Button } from "@base/ui/components/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { createFileRoute } from "@tanstack/react-router";
-import { Loader2, Trash2 } from "lucide-react";
-import { useState } from "react";
-
-import { orpc } from "@/utils/orpc";
-import { useMutation, useQuery } from "@tanstack/react-query";
+} from "@base/ui/components/card";
+import { Checkbox } from "@base/ui/components/checkbox";
+import { Input } from "@base/ui/components/input";
 
 export const Route = createFileRoute("/todos")({
   component: TodosRoute,
@@ -49,11 +50,15 @@ function TodosRoute() {
     }
   };
 
-  const handleToggleTodo = (id: number, completed: boolean) => {
+  const handleToggleTodo = (
+    id: TodoUpdateSchema["id"],
+    completed: TodoUpdateSchema["completed"],
+  ) => {
     toggleMutation.mutate({ id, completed: !completed });
   };
 
-  const handleDeleteTodo = (id: number) => {
+  const handleDeleteTodo = (id: TodoUpdateSchema["id"]) => {
+    if (!id) return;
     deleteMutation.mutate({ id });
   };
 

@@ -1,8 +1,3 @@
-import Header from "@/components/header";
-import Loader from "@/components/loader";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
-import { ORPCContext, link, type orpc } from "@/utils/orpc";
 import { createORPCClient } from "@orpc/client";
 import { createORPCReactQueryUtils } from "@orpc/react-query";
 import type { RouterClient } from "@orpc/server";
@@ -16,8 +11,14 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { useState } from "react";
-import type { appRouter } from "../../../server/src/routers";
-import "../index.css";
+
+import "@base/ui/web.css";
+import Header from "@/features/header";
+import { ORPCContext, link, type orpc } from "@/lib/orpc-client";
+import type { AppRouter } from "@base/api";
+import { Loader } from "@base/ui/components/loader";
+import { Toaster } from "@base/ui/components/sonner";
+import { ThemeProvider } from "@base/ui/components/theme-provider";
 
 export interface RouterAppContext {
   orpc: typeof orpc;
@@ -46,7 +47,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 });
 
 function RootComponent() {
-  const [client] = useState<RouterClient<typeof appRouter>>(() =>
+  const [client] = useState<RouterClient<AppRouter>>(() =>
     createORPCClient(link),
   );
   const [orpc] = useState(() => createORPCReactQueryUtils(client));
