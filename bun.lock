@@ -172,6 +172,10 @@
         "typescript": "^5.8.3",
       },
     },
+    "tools/postgres": {
+      "name": "@base/pg",
+      "version": "0.1.0",
+    },
     "tools/typescript": {
       "name": "@base/typescript",
       "version": "0.1.0",
@@ -395,6 +399,8 @@
     "@base/auth": ["@base/auth@workspace:packages/auth"],
 
     "@base/db": ["@base/db@workspace:packages/db"],
+
+    "@base/pg": ["@base/pg@workspace:tools/postgres"],
 
     "@base/typescript": ["@base/typescript@workspace:tools/typescript"],
 
