@@ -1,3 +1,4 @@
+import { aiRouter } from "./ai";
 import { protectedProcedure, publicProcedure } from "./orpc";
 import { todoRouter } from "./todo";
 
@@ -12,6 +13,7 @@ export const appRouter = {
     };
   }),
 
+  ai: aiRouter,
   todo: todoRouter,
 };
 

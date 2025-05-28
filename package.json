@@ -1,11 +1,7 @@
 {
   "name": "base",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "tools/*"
-  ],
+  "workspaces": ["apps/*", "packages/*", "tools/*"],
   "scripts": {
     "dev": "turbo dev",
     "dev:native": "turbo -F native dev",

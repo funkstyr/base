@@ -16,7 +16,9 @@ import "@base/ui/web.css";
 import Header from "@/features/header";
 import { ORPCContext, link, type orpc } from "@/lib/orpc-client";
 import type { AppRouter } from "@base/api";
+// import { AppSidebar } from "@base/ui/components/app-sidebar";
 import { Loader } from "@base/ui/components/loader";
+import { SidebarProvider } from "@base/ui/components/sidebar";
 import { Toaster } from "@base/ui/components/sonner";
 import { ThemeProvider } from "@base/ui/components/theme-provider";
 
@@ -59,11 +61,12 @@ function RootComponent() {
     <>
       <HeadContent />
       <ORPCContext.Provider value={orpc}>
-        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <ThemeProvider defaultTheme="dark" storageKey="ui-theme">
           <div className="grid h-svh grid-rows-[auto_1fr]">
             <Header />
             {isFetching ? <Loader /> : <Outlet />}
           </div>
+
           <Toaster richColors />
         </ThemeProvider>
       </ORPCContext.Provider>
