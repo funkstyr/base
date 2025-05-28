@@ -1,7 +1,11 @@
 {
   "name": "base",
   "private": true,
-  "workspaces": ["apps/*", "packages/*", "tools/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tools/*"
+  ],
   "scripts": {
     "dev": "turbo dev",
     "dev:native": "turbo -F native dev",
@@ -32,5 +36,5 @@
     "taze": "^19.1.0",
     "turbo": "^2.5.3"
   },
-  "packageManager": "bun@1.2.14"
+  "packageManager": "bun@1.2.15"
 }

@@ -19,7 +19,7 @@
     "hono": "^4.7.10"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.14",
+    "@types/bun": "^1.2.15",
     "tsc-alias": "^1.8.16",
     "typescript": "^5.8.3"
   }
