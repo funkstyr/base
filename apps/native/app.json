@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "my-better-t-app",
-    "slug": "my-better-t-app",
+    "name": "base-app",
+    "slug": "base-app",
     "version": "1.0.0",
-    "scheme": "my-better-t-app",
+    "scheme": "base-app",
     "web": {
       "bundler": "metro",
       "output": "static",
@@ -26,14 +26,14 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.amanvarshney01.mybettertapp"
+      "bundleIdentifier": "io.omnibytes.base"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.amanvarshney01.mybettertapp",
+      "package": "io.omnibytes.base",
       "edgeToEdgeEnabled": true
     }
   }

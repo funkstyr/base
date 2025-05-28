@@ -18,7 +18,7 @@ export const todoInsertSchema = createInsertSchema(todo, {
     type.pipe(
       schema,
       type.string.atLeastLength(3),
-      type.string.atMostLength(100)
+      type.string.atMostLength(100),
     ),
 });
 export type TodoInsertSchema = typeof todoInsertSchema.infer;
