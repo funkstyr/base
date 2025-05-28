@@ -5,7 +5,7 @@ import * as schema from "./schema";
 const connection = process.env.DATABASE_URL || "";
 
 export const db = drizzle({
-	connection,
-	schema,
-	casing: "snake_case",
+  connection,
+  schema,
+  casing: "snake_case",
 });

@@ -2,20 +2,20 @@
   "folders": [
     {
       "name": "root",
-      "path": ".",
+      "path": "."
     },
     {
       "name": "apps",
-      "path": "apps",
+      "path": "apps"
     },
     {
       "name": "packages",
-      "path": "packages",
+      "path": "packages"
     },
     {
       "name": "tools",
-      "path": "tools",
-    },
+      "path": "tools"
+    }
   ],
   "extensions": {
     "recommendations": [
@@ -28,8 +28,8 @@
       "ms-playwright.playwright",
       "vitest.explorer",
       "bradlc.vscode-tailwindcss",
-      "coderabbit.coderabbit-vscode",
-    ],
+      "coderabbit.coderabbit-vscode"
+    ]
   },
   "settings": {
     "editor.defaultFormatter": "biomejs.biome",
@@ -39,7 +39,7 @@
       "source.organizeImports": "never",
       "source.addMissingImports": "explicit",
       "source.fixAll.eslint": "explicit",
-      "source.fixAll": "explicit",
+      "source.fixAll": "explicit"
     },
     "npm.packageManager": "bun",
 
@@ -59,8 +59,8 @@
       "**/pnpm-lock.yaml": true,
       "**/.gitignore": true,
       "**/*.tsbuildinfo": true,
-      "**/tsbuildinfo.json": true,
+      "**/tsbuildinfo.json": true
     },
-    "cSpell.words": ["clsx", "tanstack", "tiptap"],
-  },
+    "cSpell.words": ["clsx", "tanstack", "tiptap"]
+  }
 }

@@ -1,6 +1,6 @@
 {
-	"name": "@base/typescript",
-	"private": true,
-	"version": "0.1.0",
-	"files": ["*.json"]
+  "name": "@base/typescript",
+  "private": true,
+  "version": "0.1.0",
+  "files": ["*.json"]
 }

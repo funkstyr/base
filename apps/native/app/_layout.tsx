@@ -1,8 +1,8 @@
 import {
-	DarkTheme,
-	DefaultTheme,
-	type Theme,
-	ThemeProvider,
+  DarkTheme,
+  DefaultTheme,
+  type Theme,
+  ThemeProvider,
 } from "@react-navigation/native";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
@@ -17,58 +17,58 @@ import React, { useRef } from "react";
 import { Platform } from "react-native";
 
 const LIGHT_THEME: Theme = {
-	...DefaultTheme,
-	colors: NAV_THEME.light,
+  ...DefaultTheme,
+  colors: NAV_THEME.light,
 };
 const DARK_THEME: Theme = {
-	...DarkTheme,
-	colors: NAV_THEME.dark,
+  ...DarkTheme,
+  colors: NAV_THEME.dark,
 };
 
 export const unstable_settings = {
-	initialRouteName: "(drawer)",
+  initialRouteName: "(drawer)",
 };
 
 export default function RootLayout() {
-	const hasMounted = useRef(false);
-	const { colorScheme, isDarkColorScheme } = useColorScheme();
-	const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
+  const hasMounted = useRef(false);
+  const { colorScheme, isDarkColorScheme } = useColorScheme();
+  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
 
-	useIsomorphicLayoutEffect(() => {
-		if (hasMounted.current) {
-			return;
-		}
+  useIsomorphicLayoutEffect(() => {
+    if (hasMounted.current) {
+      return;
+    }
 
-		if (Platform.OS === "web") {
-			document.documentElement.classList.add("bg-background");
-		}
-		setAndroidNavigationBar(colorScheme);
-		setIsColorSchemeLoaded(true);
-		hasMounted.current = true;
-	}, []);
+    if (Platform.OS === "web") {
+      document.documentElement.classList.add("bg-background");
+    }
+    setAndroidNavigationBar(colorScheme);
+    setIsColorSchemeLoaded(true);
+    hasMounted.current = true;
+  }, []);
 
-	if (!isColorSchemeLoaded) {
-		return null;
-	}
-	return (
-		<QueryClientProvider client={queryClient}>
-			<ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-				<StatusBar style={isDarkColorScheme ? "light" : "dark"} />
-				<GestureHandlerRootView style={{ flex: 1 }}>
-					<Stack>
-						<Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-						<Stack.Screen
-							name="modal"
-							options={{ title: "Modal", presentation: "modal" }}
-						/>
-					</Stack>
-				</GestureHandlerRootView>
-			</ThemeProvider>
-		</QueryClientProvider>
-	);
+  if (!isColorSchemeLoaded) {
+    return null;
+  }
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+        <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Stack>
+            <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="modal"
+              options={{ title: "Modal", presentation: "modal" }}
+            />
+          </Stack>
+        </GestureHandlerRootView>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
 }
 
 const useIsomorphicLayoutEffect =
-	Platform.OS === "web" && typeof window === "undefined"
-		? React.useEffect
-		: React.useLayoutEffect;
+  Platform.OS === "web" && typeof window === "undefined"
+    ? React.useEffect
+    : React.useLayoutEffect;
