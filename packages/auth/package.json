@@ -18,12 +18,12 @@
 	},
 	"dependencies": {
 		"@base/db": "workspace:^",
-		"better-auth": "^1.2.7",
+		"better-auth": "^1.2.8",
 		"dotenv": "^16.5.0"
 	},
 	"devDependencies": {
 		"@base/typescript": "workspace:",
-		"@types/bun": "^1.2.13",
+		"@types/bun": "^1.2.14",
 		"tsc-alias": "^1.8.16",
 		"typescript": "^5.8.3"
 	}

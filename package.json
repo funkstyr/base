@@ -18,12 +18,14 @@
 		"db:studio": "turbo -F server db:studio",
 		"db:generate": "turbo -F server db:generate",
 		"db:migrate": "turbo -F server db:migrate",
-		"up-deps": "bunx taze -r -w major"
+		"up-deps": "bunx taze -r -w minor",
+		"up-deps:major": "bunx taze -r -w major"
 	},
 	"dependencies": {},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
+		"taze": "^19.1.0",
 		"turbo": "^2.5.3"
 	},
-	"packageManager": "bun@1.2.13"
+	"packageManager": "bun@1.2.14"
 }
