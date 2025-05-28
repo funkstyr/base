@@ -81,7 +81,7 @@
     "zod": "^3.25.31"
   },
   "devDependencies": {
-    "@hl/typescript": "workspace:",
+    "@base/typescript": "workspace:",
     "@tailwindcss/postcss": "^4.1.7",
     "@types/bun": "^1.2.14",
     "@types/react": "^19.1.6",

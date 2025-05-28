@@ -1,0 +1,11 @@
+{
+  "extends": "@base/typescript/react-package.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@base/ui-layout/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

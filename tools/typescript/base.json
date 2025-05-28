@@ -21,7 +21,8 @@
 
     "module": "Preserve",
     "moduleResolution": "Bundler",
-    "noEmit": true
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules", "build", "dist", ".next", ".expo"]
 }

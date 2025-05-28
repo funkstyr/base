@@ -82,7 +82,7 @@
       "dependencies": {
         "@base/api": "workspace:",
         "@base/db": "workspace:",
-        "@base/ui-web": "workspace:",
+        "@base/ui": "workspace:",
         "@hookform/resolvers": "^5.0.1",
         "@orpc/client": "^1.3.0",
         "@orpc/react-query": "^1.3.0",
@@ -223,12 +223,32 @@
         "zod": "^3.25.31",
       },
       "devDependencies": {
-        "@hl/typescript": "workspace:",
+        "@base/typescript": "workspace:",
         "@tailwindcss/postcss": "^4.1.7",
         "@types/bun": "^1.2.14",
         "@types/react": "^19.1.6",
         "@types/react-dom": "^19.1.5",
         "tailwindcss": "^4.1.7",
+        "tsc-alias": "^1.8.16",
+        "typescript": "^5.8.3",
+      },
+    },
+    "packages/ui-layout": {
+      "name": "@base/ui-layout",
+      "dependencies": {
+        "@base/ui": "workspace:",
+        "@hookform/resolvers": "^5.0.1",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.511.0",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "react-hook-form": "^7.56.4",
+      },
+      "devDependencies": {
+        "@base/typescript": "workspace:",
+        "@types/bun": "^1.2.14",
+        "@types/react": "^19.1.6",
+        "@types/react-dom": "^19.1.5",
         "tsc-alias": "^1.8.16",
         "typescript": "^5.8.3",
       },
@@ -467,7 +487,7 @@
 
     "@base/ui": ["@base/ui@workspace:packages/ui"],
 
-    "@base/ui-web": ["web@workspace:apps/web"],
+    "@base/ui-layout": ["@base/ui-layout@workspace:packages/ui-layout"],
 
     "@better-auth/expo": ["@better-auth/expo@1.2.8", "", { "dependencies": { "@better-fetch/fetch": "^1.1.18", "better-call": "^1.0.8", "zod": "^3.23.8" }, "peerDependencies": { "better-auth": "1.2.8" } }, "sha512-lbrSer954pv6PSDwzA7o6jVzbRO7Qv7npGgSifbC1oLwDTlsHFwU+Q0Rb8BvVleLi28tKtH7fN7sx/MMdeBOFw=="],
 
@@ -620,8 +640,6 @@
     "@floating-ui/utils": ["@floating-ui/utils@0.2.9", "", {}, "sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg=="],
 
     "@hexagon/base64": ["@hexagon/base64@1.1.28", "", {}, "sha512-lhqDEAvWixy3bZ+UOYbPwUbBkwBq5C1LAJ/xPC8Oi+lL54oyakv/npbA0aU2hgCsx/1NUd4IBvV03+aUBWxerw=="],
-
-    "@hl/typescript": ["@base/ui@workspace:packages/ui"],
 
     "@hookform/resolvers": ["@hookform/resolvers@5.0.1", "", { "dependencies": { "@standard-schema/utils": "^0.3.0" }, "peerDependencies": { "react-hook-form": "^7.55.0" } }, "sha512-u/+Jp83luQNx9AdyW2fIPGY6Y7NG68eN2ZW8FOJYL+M0i4s49+refdJdOp/A9n9HFQtQs3HIDHQvX3ZET2o7YA=="],
 
