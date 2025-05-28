@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc && tsc-alias",
-    "check-types": "tsc --noEmit"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@base/db": "workspace:^",

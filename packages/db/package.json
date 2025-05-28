@@ -22,7 +22,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc && tsc-alias",
-    "check-types": "tsc --noEmit",
+    "type-check": "tsc --noEmit",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",
