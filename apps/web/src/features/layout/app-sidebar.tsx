@@ -1,16 +1,9 @@
 "use client";
 
 import {
-  BookOpen,
-  Bot,
   Command,
-  Frame,
-  LifeBuoy,
-  type LucideProps,
-  Map as MapIcon,
-  PieChart,
-  Send,
-  Settings2,
+  MessageCircleMore,
+  Settings,
   SquareTerminal,
 } from "lucide-react";
 import type * as React from "react";
@@ -28,41 +21,69 @@ import { NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
 import { NavUser } from "./nav-user";
 
-type RouteIcon = React.ForwardRefExoticComponent<
-  Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
->;
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {}
 
-interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
-  user?: {
-    name: string;
-    email: string;
-    avatar: string;
-  };
-  routes: {
-    navMain: {
-      title: string;
-      url: string;
-      icon: RouteIcon;
-      isActive: boolean;
-      items?: {
-        title: string;
-        url: string;
-      }[];
-    }[];
+const user = {
+  name: "funkstyr",
+  email: "m@example.com",
+  avatar: "/avatars/shadcn.jpg",
+};
 
-    navSecondary: {
-      title: string;
-      url: string;
-      icon: RouteIcon;
-    }[];
-  };
-}
+const routes = {
+  navMain: [
+    {
+      title: "Chat",
+      url: "#",
+      icon: MessageCircleMore,
+      isActive: true,
+      items: [
+        {
+          title: "New",
+          url: "/?id=new",
+        },
+        {
+          title: "History",
+          url: "/history",
+        },
+        {
+          title: "Starred",
+          url: "/starred",
+        },
+      ],
+    },
+    {
+      title: "Examples",
+      url: "#",
+      icon: SquareTerminal,
+      isActive: true,
+      items: [
+        {
+          title: "Login",
+          url: "/login",
+        },
+        {
+          title: "Todos",
+          url: "/todos",
+        },
+        {
+          title: "Ai",
+          url: "/ai",
+        },
+      ],
+    },
+  ],
+  navSecondary: [
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: Settings,
+    },
+  ],
+};
 
 export function AppSidebar(props: AppSidebarProps) {
-  const { routes, user, ...sidebarProps } = props;
-
   return (
-    <Sidebar variant="inset" {...sidebarProps}>
+    <Sidebar variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -72,8 +93,8 @@ export function AppSidebar(props: AppSidebarProps) {
                   <Command className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">Acme Inc</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                  <span className="truncate font-medium">Base</span>
+                  <span className="truncate text-xs">Platform</span>
                 </div>
               </a>
             </SidebarMenuButton>
