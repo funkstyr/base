@@ -32,8 +32,15 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "useExhaustiveDependencies": "info"
+        "useExhaustiveDependencies": "info",
+        "noUnusedVariables": "error",
+        "noUnusedFunctionParameters": "error",
+        "noUnusedImports": "error"
       },
+      "style": {
+        "useImportType": "error"
+      },
+
       "nursery": {
         "useSortedClasses": {
           "level": "warn",
@@ -47,7 +54,9 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double"
+      "quoteStyle": "double",
+      "trailingCommas": "all",
+      "semicolons": "always"
     }
   }
 }

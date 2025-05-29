@@ -1,21 +1,10 @@
 "use client";
 
 import { useNavigate } from "@tanstack/react-router";
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Sparkles,
-} from "lucide-react";
+import { BadgeCheck, Bell, ChevronsUpDown, LogOut } from "lucide-react";
 
 import { authClient } from "@/lib/auth-client";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@base/ui/components/avatar";
+import { Avatar, AvatarFallback } from "@base/ui/components/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
