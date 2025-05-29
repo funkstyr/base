@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Command,
-  MessageCircleMore,
-  Settings,
-  SquareTerminal,
-} from "lucide-react";
+import { Computer, Dices, Settings, SquareTerminal } from "lucide-react";
 import type * as React from "react";
 
 import {
@@ -23,18 +18,12 @@ import { NavUser } from "./nav-user";
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {}
 
-const user = {
-  name: "funkstyr",
-  email: "m@example.com",
-  avatar: "/avatars/shadcn.jpg",
-};
-
 const routes = {
   navMain: [
     {
-      title: "Chat",
+      title: "Game",
       url: "#",
-      icon: MessageCircleMore,
+      icon: Computer,
       isActive: true,
       items: [
         {
@@ -53,7 +42,7 @@ const routes = {
     },
     {
       title: "Examples",
-      url: "#",
+      url: "/todos",
       icon: SquareTerminal,
       isActive: true,
       items: [
@@ -83,18 +72,18 @@ const routes = {
 
 export function AppSidebar(props: AppSidebarProps) {
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar variant="inset" collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="/">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Command className="size-4" />
+                  <Dices className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">Base</span>
-                  <span className="truncate text-xs">Platform</span>
+                  {/* <span className="truncate text-xs">Platform</span> */}
                 </div>
               </a>
             </SidebarMenuButton>
@@ -108,7 +97,9 @@ export function AppSidebar(props: AppSidebarProps) {
         <NavSecondary items={routes.navSecondary} className="mt-auto" />
       </SidebarContent>
 
-      <SidebarFooter>{!!user && <NavUser user={user} />}</SidebarFooter>
+      <SidebarFooter>
+        <NavUser />
+      </SidebarFooter>
     </Sidebar>
   );
 }

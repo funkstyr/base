@@ -19,7 +19,6 @@ import type { AppRouter } from "@base/api";
 
 import { Layout } from "@/features/layout";
 import { Loader } from "@base/ui/components/loader";
-import { SidebarProvider } from "@base/ui/components/sidebar";
 import { Toaster } from "@base/ui/components/sonner";
 import { ThemeProvider } from "@base/ui/components/theme-provider";
 
@@ -33,11 +32,11 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
   head: () => ({
     meta: [
       {
-        title: "My App",
+        title: "Base",
       },
       {
         name: "description",
-        content: "My App is a web application",
+        content: "A simple web application",
       },
     ],
     links: [
@@ -58,9 +57,11 @@ function RootComponent() {
   const isFetching = useRouterState({
     select: (s) => s.isLoading,
   });
+
   return (
     <>
       <HeadContent />
+
       <ORPCContext.Provider value={orpc}>
         <ThemeProvider defaultTheme="dark" storageKey="ui-theme">
           <Layout>{isFetching ? <Loader /> : <Outlet />}</Layout>
@@ -68,7 +69,8 @@ function RootComponent() {
           <Toaster richColors />
         </ThemeProvider>
       </ORPCContext.Provider>
-      <TanStackRouterDevtools position="bottom-left" />
+
+      <TanStackRouterDevtools position="bottom-right" />
       <ReactQueryDevtools position="bottom" buttonPosition="bottom-right" />
     </>
   );

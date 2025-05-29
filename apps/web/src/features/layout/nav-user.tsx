@@ -32,16 +32,7 @@ import {
   useSidebar,
 } from "@base/ui/components/sidebar";
 
-interface NavUserProps {
-  user: {
-    name: string;
-    email: string;
-    avatar: string;
-  };
-}
-
-export function NavUser(props: NavUserProps) {
-  const { user } = props;
+export function NavUser() {
   const navigate = useNavigate();
   const { isMobile } = useSidebar();
 
@@ -61,7 +52,7 @@ export function NavUser(props: NavUserProps) {
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={session?.user?.name} />
+                {/* <AvatarImage src={user.avatar} alt={session?.user?.name} /> */}
                 <AvatarFallback className="rounded-lg uppercase">
                   {initials}
                 </AvatarFallback>
@@ -88,7 +79,7 @@ export function NavUser(props: NavUserProps) {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
+                  {/* <AvatarImage src={user.avatar} alt={user.name} /> */}
                   <AvatarFallback className="rounded-lg uppercase">
                     {initials}
                   </AvatarFallback>
@@ -110,22 +101,8 @@ export function NavUser(props: NavUserProps) {
 
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                <Sparkles />
-                Upgrade to Pro
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-
-            <DropdownMenuSeparator />
-
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
                 <BadgeCheck />
                 Account
-              </DropdownMenuItem>
-
-              <DropdownMenuItem>
-                <CreditCard />
-                Billing
               </DropdownMenuItem>
 
               <DropdownMenuItem>
