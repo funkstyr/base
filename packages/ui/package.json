@@ -76,9 +76,9 @@
     "recharts": "^2.15.3",
     "sonner": "^2.0.3",
     "tailwind-merge": "^3.3.0",
-    "tw-animate-css": "^1.3.0",
+    "tw-animate-css": "^1.3.2",
     "vaul": "^1.1.2",
-    "zod": "^3.25.32"
+    "zod": "^3.25.36"
   },
   "devDependencies": {
     "@base/typescript": "workspace:",
