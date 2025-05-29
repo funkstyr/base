@@ -4,27 +4,27 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://funkstyr.github.io",
+  base: process.env.NODE_ENV === "production" ? "base" : "",
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "Base Docs",
       social: [
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/withastro/starlight",
+          href: "https://github.com/funkstyr/base",
         },
       ],
       sidebar: [
         {
-          label: "Guides",
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", slug: "guides/example" },
-          ],
+          label: "Docs",
+          autogenerate: { directory: "docs" },
         },
+
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "Journal",
+          autogenerate: { directory: "journal" },
         },
       ],
     }),
