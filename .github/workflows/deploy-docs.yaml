@@ -1,10 +1,11 @@
-name: Deploy to GitHub Pages
+name: Deploy - Docs
 
 on:
   # Trigger the workflow every time you push to the `main` branch
   # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [main]
+    paths: [apps/docs/**]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
