@@ -22,6 +22,7 @@ interface NavSecondaryProps
 export function NavSecondary(props: NavSecondaryProps) {
   const { items, ...sidebarProps } = props;
 
+  if (!items?.length) return;
   return (
     <SidebarGroup {...sidebarProps}>
       <SidebarGroupContent>

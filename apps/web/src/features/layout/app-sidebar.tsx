@@ -1,6 +1,6 @@
 "use client";
 
-import { Computer, Dices, Settings, SquareTerminal } from "lucide-react";
+import { Computer, Dices, SquareTerminal } from "lucide-react";
 import type * as React from "react";
 
 import {
@@ -12,8 +12,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@base/ui/components/sidebar";
+import { Link } from "@tanstack/react-router";
 import { NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
+import { NavStatus } from "./nav-status";
 import { NavUser } from "./nav-user";
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {}
@@ -21,22 +23,22 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {}
 const routes = {
   navMain: [
     {
-      title: "Game",
-      url: "#",
+      title: "Games",
+      url: "/games",
       icon: Computer,
       isActive: true,
       items: [
         {
           title: "New",
-          url: "/?id=new",
+          url: "games/new",
         },
         {
           title: "History",
-          url: "/history",
+          url: "games/history",
         },
         {
           title: "Starred",
-          url: "/starred",
+          url: "games/starred",
         },
       ],
     },
@@ -62,11 +64,11 @@ const routes = {
     },
   ],
   navSecondary: [
-    {
-      title: "Settings",
-      url: "/settings",
-      icon: Settings,
-    },
+    // {
+    //   title: "Settings",
+    //   url: "/settings",
+    //   icon: Settings,
+    // },
   ],
 };
 
@@ -77,7 +79,7 @@ export function AppSidebar(props: AppSidebarProps) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="/">
+              <Link to="/">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <Dices className="size-4" />
                 </div>
@@ -85,7 +87,7 @@ export function AppSidebar(props: AppSidebarProps) {
                   <span className="truncate font-medium">Base</span>
                   {/* <span className="truncate text-xs">Platform</span> */}
                 </div>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
@@ -93,8 +95,9 @@ export function AppSidebar(props: AppSidebarProps) {
 
       <SidebarContent>
         <NavMain items={routes.navMain} />
-
         <NavSecondary items={routes.navSecondary} className="mt-auto" />
+
+        <NavStatus />
       </SidebarContent>
 
       <SidebarFooter>
