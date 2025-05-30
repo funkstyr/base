@@ -22,7 +22,7 @@ description: Bootstrapping project.
 * **Documentation:**
     * [x] Created this dev journal
       * Still need to add to the docs portion
-    * [ ] Get host on github pages
+    * [x] Get deploying to github pages
 
 ---
 
@@ -31,17 +31,18 @@ description: Bootstrapping project.
 * **App Layout:**
     * Still learning how the layout feels; tweaks to follow
     * How to handle auth guard and displaying/routing to login page
-* **Testing:**
-    * Need to get the app in a state to start testing pieces of them and packages
+* **Auth:**
+    * Need to hook up social logins and remove the email/password login
+      * May play with org/admin plugins and include for the db schema
 
 ---
 
 
 ## Next Plans
 
-* [ ] To get the app in a hosted environment.
-* [ ] Get auth working with guarded pages.
-* [ ] Start a working example for chat rooms.
+* To get the app in a hosted environment.
+* Get auth working with guarded pages.
+* Start a working example for chat rooms.
 
 ---
 
