@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export function Layout(props: LayoutProps) {
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={false}>
       <AppSidebar />
 
       <SidebarInset>
