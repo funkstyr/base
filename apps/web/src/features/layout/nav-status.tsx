@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import clsx from "clsx";
 
 import { orpc } from "@/lib/orpc-client";
 
@@ -7,19 +8,15 @@ export function NavStatus() {
 
   return (
     <div className="mt-auto grid gap-6">
-      <section className="rounded-lg border p-4">
+      <section className="rounded-lg p-4">
         <div className="flex items-center gap-2">
           <div
-            className={`h-2 w-2 rounded-full ${healthCheck.data ? "bg-green-500" : "bg-red-500"}`}
+            className={clsx("mx-auto h-2 w-2 rounded-full", {
+              "bg-yellow-500": healthCheck.isLoading,
+              "bg-green-500": !healthCheck.isLoading && healthCheck.data,
+              "bg-red-500": !healthCheck.isLoading && !healthCheck.data,
+            })}
           />
-          {/* TODO: use same mechanism as sidebar to hide text when collapsed */}
-          <span className="text-muted-foreground text-sm">
-            {healthCheck.isLoading
-              ? "Checking..."
-              : healthCheck.data
-                ? "Connected"
-                : "Disconnected"}
-          </span>
         </div>
       </section>
     </div>
