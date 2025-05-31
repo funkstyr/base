@@ -3,7 +3,10 @@ import { protectedProcedure, publicProcedure } from "./orpc";
 import { todoRouter } from "./todo";
 
 export const appRouter = {
-  healthCheck: publicProcedure.handler(() => {
+  ai: aiRouter,
+  todo: todoRouter,
+
+  health: publicProcedure.handler(() => {
     return "OK";
   }),
   privateData: protectedProcedure.handler(({ context }) => {
@@ -12,9 +15,6 @@ export const appRouter = {
       user: context.session?.user,
     };
   }),
-
-  ai: aiRouter,
-  todo: todoRouter,
 };
 
 export type AppRouter = typeof appRouter;

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { orpc } from "@/lib/orpc-client";
 
 export function NavStatus() {
-  const healthCheck = useQuery(orpc.healthCheck.queryOptions());
+  const { data, isLoading } = useQuery(orpc.health.queryOptions());
 
   return (
     <div className="grid gap-6">
@@ -12,9 +12,9 @@ export function NavStatus() {
         <div className="flex items-center gap-2">
           <div
             className={clsx("mx-auto h-2 w-2 rounded-full", {
-              "bg-yellow-500": healthCheck.isLoading,
-              "bg-green-500": !healthCheck.isLoading && healthCheck.data,
-              "bg-red-500": !healthCheck.isLoading && !healthCheck.data,
+              "bg-yellow-500": isLoading,
+              "bg-green-500": !isLoading && data,
+              "bg-red-500": !isLoading && !data,
             })}
           />
         </div>

@@ -6,6 +6,7 @@ import { logger } from "hono/logger";
 
 import { appRouter } from "@base/api";
 import { createContext } from "@base/api/context";
+import { openApiHtml, openApiSpec } from "@base/api/open-api";
 import { auth } from "@base/auth";
 
 const app = new Hono();
@@ -36,8 +37,7 @@ app.use("/rpc/*", async (c, next) => {
   await next();
 });
 
-app.get("/", (c) => {
-  return c.text("OK");
-});
+app.get("/spec.json", (c) => c.json(openApiSpec));
+app.get("/", (c) => c.html(openApiHtml("/spec.json")));
 
 export default app;
