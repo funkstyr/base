@@ -3,11 +3,11 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc && tsc-alias",
-    "type-check": "tsc --noEmit",
-    "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
     "dev": "bun run --hot src/index.ts",
-    "start": "bun run dist/src/index.js"
+    "start": "bun run dist/src/index.js",
+    "build": "tsc && tsc-alias",
+    "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@base/api": "workspace:",

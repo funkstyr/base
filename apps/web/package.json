@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3001",
+    "start": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "start": "vite",
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {
@@ -20,7 +20,7 @@
     "@vitejs/plugin-react": "^4.5.0",
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8",
-    "vite": "^6.3.5"
+    "vite": "npm:rolldown-vite@latest"
   },
   "dependencies": {
     "@base/api": "workspace:",
