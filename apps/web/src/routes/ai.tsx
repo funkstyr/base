@@ -3,11 +3,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Send } from "lucide-react";
 import { useEffect, useRef } from "react";
 
+import { beforeLoad } from "@/features/auth/protected-route";
 import { Button } from "@base/ui/components/button";
 import { Input } from "@base/ui/components/input";
 
 export const Route = createFileRoute("/ai")({
   component: RouteComponent,
+  beforeLoad,
 });
 
 function RouteComponent() {

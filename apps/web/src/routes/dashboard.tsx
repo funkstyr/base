@@ -2,11 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
+import { beforeLoad } from "@/features/auth/protected-route";
 import { authClient } from "@/lib/auth-client";
 import { orpc } from "@/lib/orpc-client";
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent,
+  beforeLoad,
 });
 
 function RouteComponent() {

@@ -1,5 +1,5 @@
 import { useForm } from "@tanstack/react-form";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 import { type } from "arktype";
 import { toast } from "sonner";
 
@@ -14,10 +14,13 @@ export default function SignInForm({
 }: {
   onSwitchToSignUp: () => void;
 }) {
-  const navigate = useNavigate({
-    from: "/",
-  });
   const { isPending } = authClient.useSession();
+
+  const navigate = useNavigate({
+    from: "/login",
+  });
+
+  const params = useSearch({ from: "/login" }) as { redirect?: string };
 
   const form = useForm({
     defaultValues: {
@@ -33,7 +36,7 @@ export default function SignInForm({
         {
           onSuccess: () => {
             navigate({
-              to: "/dashboard",
+              to: params.redirect ? params.redirect : "/dashboard",
             });
             toast.success("Sign in successful");
           },
