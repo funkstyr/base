@@ -3,6 +3,7 @@
 import { Computer, Dices, SquareTerminal } from "lucide-react";
 import type * as React from "react";
 
+import { authClient } from "@/lib/auth-client";
 import {
   Sidebar,
   SidebarContent,
@@ -30,21 +31,21 @@ const routes = {
       items: [
         {
           title: "New",
-          url: "games/new",
+          url: "/games/new",
         },
         {
           title: "History",
-          url: "games/history",
+          url: "/games/history",
         },
         {
           title: "Starred",
-          url: "games/starred",
+          url: "/games/starred",
         },
       ],
     },
     {
       title: "Examples",
-      url: "/todos",
+      url: "/dashboard",
       icon: SquareTerminal,
       isActive: true,
       items: [
@@ -73,6 +74,8 @@ const routes = {
 };
 
 export function AppSidebar(props: AppSidebarProps) {
+  const { data: session } = authClient.useSession();
+
   return (
     <Sidebar variant="inset" collapsible="icon" {...props}>
       <SidebarHeader>
@@ -93,15 +96,17 @@ export function AppSidebar(props: AppSidebarProps) {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent>
-        <NavMain items={routes.navMain} />
-        <NavSecondary items={routes.navSecondary} className="mt-auto" />
+      {!!session && (
+        <SidebarContent>
+          <NavMain items={routes.navMain} />
+          <NavSecondary items={routes.navSecondary} className="mt-auto" />
+        </SidebarContent>
+      )}
+
+      <SidebarFooter className="mt-auto">
+        <NavUser />
 
         <NavStatus />
-      </SidebarContent>
-
-      <SidebarFooter>
-        <NavUser />
       </SidebarFooter>
     </Sidebar>
   );

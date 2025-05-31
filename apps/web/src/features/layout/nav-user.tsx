@@ -1,7 +1,7 @@
 "use client";
 
-import { useNavigate } from "@tanstack/react-router";
-import { BadgeCheck, Bell, ChevronsUpDown, LogOut } from "lucide-react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { BadgeCheck, Bell, ChevronsUpDown, LogIn, LogOut } from "lucide-react";
 
 import { authClient } from "@/lib/auth-client";
 import { Avatar, AvatarFallback } from "@base/ui/components/avatar";
@@ -30,7 +30,32 @@ export function NavUser() {
     ?.split(" ")
     .map((word) => word.charAt(0));
 
-  if (!session) return;
+  const handleLogout = () => {
+    authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          navigate({
+            to: "/",
+          });
+        },
+      },
+    });
+  };
+
+  if (!session)
+    return (
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton asChild size="sm">
+            <Link to="/login">
+              <LogIn />
+              <span>Log in</span>
+            </Link>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    );
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -102,19 +127,7 @@ export function NavUser() {
 
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem
-              onClick={() => {
-                authClient.signOut({
-                  fetchOptions: {
-                    onSuccess: () => {
-                      navigate({
-                        to: "/",
-                      });
-                    },
-                  },
-                });
-              }}
-            >
+            <DropdownMenuItem onClick={handleLogout}>
               <LogOut />
               Log out
             </DropdownMenuItem>

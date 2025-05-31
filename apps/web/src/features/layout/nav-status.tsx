@@ -7,7 +7,7 @@ export function NavStatus() {
   const healthCheck = useQuery(orpc.healthCheck.queryOptions());
 
   return (
-    <div className="mt-auto grid gap-6">
+    <div className="grid gap-6">
       <section className="rounded-lg p-4">
         <div className="flex items-center gap-2">
           <div
