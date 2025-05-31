@@ -1,12 +1,10 @@
 import "dotenv/config";
-import { RPCHandler } from "@orpc/server/fetch";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 
-import { appRouter } from "@base/api";
-import { createContext } from "@base/api/context";
 import { openApiHtml, openApiSpec } from "@base/api/open-api";
+import { rpc } from "@base/api/rpc";
 import { auth } from "@base/auth";
 
 const app = new Hono();
@@ -24,19 +22,7 @@ app.use(
 
 app.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
 
-const handler = new RPCHandler(appRouter);
-app.use("/rpc/*", async (c, next) => {
-  const context = await createContext({ context: c });
-  const { matched, response } = await handler.handle(c.req.raw, {
-    prefix: "/rpc",
-    context: context,
-  });
-  if (matched) {
-    return c.newResponse(response.body, response);
-  }
-  await next();
-});
-
+app.use("/rpc/*", async (c, next) => rpc.handler("/rpc", c, next));
 app.get("/spec.json", (c) => c.json(openApiSpec));
 app.get("/", (c) => c.html(openApiHtml("/spec.json")));
 

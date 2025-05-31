@@ -6,6 +6,11 @@ import { publicProcedure } from "./orpc";
 
 export const aiRouter = {
   generate: publicProcedure
+    .route({
+      summary: "Generate prompt",
+      description: "Streams text from a prompt response from a model",
+      tags: ["ai"],
+    })
     .input(type({ content: "string" }))
     .handler(async function* ({ input }) {
       const stream = await streamText({
