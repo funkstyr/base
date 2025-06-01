@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { Scalar } from "@scalar/hono-api-reference";
+import { createMarkdownFromOpenApi } from "@scalar/openapi-to-markdown";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
@@ -28,10 +29,17 @@ app.get("/openapi.json", (c) => c.json(openApiSpec));
 app.get(
   "/",
   Scalar({
-    pageTitle: "Base Api Docs",
     url: "/",
+    pageTitle: "Base Api Docs",
+    theme: "alternate",
     sources: [{ url: "/openapi.json" }],
   }),
 );
+
+app.get("/llms.txt", async (c) => {
+  const markdown = await createMarkdownFromOpenApi(JSON.stringify(openApiSpec));
+
+  return c.text(markdown);
+});
 
 export default app;

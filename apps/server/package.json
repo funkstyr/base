@@ -16,6 +16,7 @@
     "@better-auth/expo": "^1.2.8",
     "@orpc/server": "^1.3.0",
     "@scalar/hono-api-reference": "^0.9.1",
+    "@scalar/openapi-to-markdown": "^0.2.5",
     "dotenv": "^16.5.0",
     "hono": "^4.7.11"
   },
