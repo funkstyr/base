@@ -1,0 +1,34 @@
+{
+  "name": "@base/ai",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc && tsc-alias",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^1.2.18",
+    "@base/auth": "workspace:^",
+    "@base/db": "workspace:^",
+    "ai": "^4.3.16",
+    "arktype": "^2.1.20",
+    "dotenv": "^16.5.0",
+    "hono": "^4.7.11"
+  },
+  "devDependencies": {
+    "@base/typescript": "workspace:",
+    "@types/bun": "^1.2.15",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.8.3"
+  }
+}
