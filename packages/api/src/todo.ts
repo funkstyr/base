@@ -5,18 +5,21 @@ import {
   todo,
   todoDeleteSchema,
   todoInsertSchema,
+  todoSelectSchema,
   todoUpdateSchema,
 } from "@base/db/schema/todo";
 
+import { type } from "arktype";
 import { publicProcedure } from "./orpc";
 
 export const todoRouter = {
   getAll: publicProcedure
     .route({
-      summary: "Get all",
+      summary: "Get All",
       description: "Get every todo",
       tags: ["todo"],
     })
+    .output(todoSelectSchema.array())
     .handler(async () => {
       return await db.select().from(todo);
     }),
@@ -28,8 +31,16 @@ export const todoRouter = {
       tags: ["todo"],
     })
     .input(todoInsertSchema)
-    .handler(async ({ input }) => {
+    .output(todoSelectSchema)
+    .errors({
+      NOT_FOUND: {},
+    })
+    .handler(async ({ input, errors }) => {
       const result = await db.insert(todo).values(input).returning();
+
+      if (!result[0]) {
+        throw errors.NOT_FOUND();
+      }
 
       return result[0];
     }),
@@ -41,6 +52,7 @@ export const todoRouter = {
       tags: ["todo"],
     })
     .input(todoUpdateSchema)
+    .output(type({ success: "boolean" }))
     .handler(async ({ input }) => {
       await db
         .update(todo)
@@ -57,6 +69,7 @@ export const todoRouter = {
       tags: ["todo"],
     })
     .input(todoDeleteSchema)
+    .output(type({ success: "boolean" }))
     .handler(async ({ input }) => {
       await db.delete(todo).where(eq(todo.id, Number(input.id)));
 
