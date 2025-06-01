@@ -1,6 +1,6 @@
 "use client";
 
-import { Computer, Dices, SquareTerminal } from "lucide-react";
+import { Dices, SquareTerminal } from "lucide-react";
 import type * as React from "react";
 
 import { authClient } from "@/lib/auth-client";
@@ -23,36 +23,32 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {}
 
 const routes = {
   navMain: [
-    {
-      title: "Games",
-      url: "/games",
-      icon: Computer,
-      isActive: true,
-      items: [
-        {
-          title: "New",
-          url: "/games/new",
-        },
-        {
-          title: "History",
-          url: "/games/history",
-        },
-        {
-          title: "Starred",
-          url: "/games/starred",
-        },
-      ],
-    },
+    // {
+    //   title: "Games",
+    //   url: "/games",
+    //   icon: Computer,
+    //   isActive: true,
+    //   items: [
+    //     {
+    //       title: "New",
+    //       url: "/games/new",
+    //     },
+    //     {
+    //       title: "History",
+    //       url: "/games/history",
+    //     },
+    //     {
+    //       title: "Starred",
+    //       url: "/games/starred",
+    //     },
+    //   ],
+    // },
     {
       title: "Examples",
       url: "/dashboard",
       icon: SquareTerminal,
       isActive: true,
       items: [
-        {
-          title: "Login",
-          url: "/login",
-        },
         {
           title: "Todos",
           url: "/todos",

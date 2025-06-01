@@ -16,6 +16,9 @@ function RouteComponent() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     api: `${import.meta.env.VITE_SERVER_URL}/ai/chat`,
     credentials: "include",
+    body: {
+      model: "gemini-1.5-flash",
+    },
   });
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
