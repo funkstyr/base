@@ -15,8 +15,9 @@
     "@base/db": "workspace:",
     "@better-auth/expo": "^1.2.8",
     "@orpc/server": "^1.3.0",
+    "@scalar/hono-api-reference": "^0.9.1",
     "dotenv": "^16.5.0",
-    "hono": "^4.7.10"
+    "hono": "^4.7.11"
   },
   "devDependencies": {
     "@types/bun": "^1.2.15",

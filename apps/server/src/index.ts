@@ -1,9 +1,10 @@
 import "dotenv/config";
+import { Scalar } from "@scalar/hono-api-reference";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 
-import { openApiHtml, openApiSpec } from "@base/api/open-api";
+import { openApiSpec } from "@base/api/open-api";
 import { rpc } from "@base/api/rpc";
 import { auth } from "@base/auth";
 
@@ -23,7 +24,14 @@ app.use(
 app.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
 
 app.use("/rpc/*", async (c, next) => rpc.handler("/rpc", c, next));
-app.get("/spec.json", (c) => c.json(openApiSpec));
-app.get("/", (c) => c.html(openApiHtml("/spec.json")));
+app.get("/openapi.json", (c) => c.json(openApiSpec));
+app.get(
+  "/",
+  Scalar({
+    pageTitle: "Base Api Docs",
+    url: "/",
+    sources: [{ url: "/openapi.json" }],
+  }),
+);
 
 export default app;
