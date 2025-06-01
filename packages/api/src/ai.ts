@@ -1,7 +1,8 @@
 import { google } from "@ai-sdk/google";
-import { streamText } from "ai";
+import { type CoreMessage, streamText } from "ai";
 
 import { type } from "arktype";
+import { chatMessageType } from "./lib/ai";
 import { publicProcedure } from "./orpc";
 
 export const aiRouter = {
@@ -16,6 +17,22 @@ export const aiRouter = {
       const stream = await streamText({
         model: google("gemini-1.5-flash"),
         prompt: input.content,
+      });
+
+      yield* stream.toDataStream();
+    }),
+
+  chat: publicProcedure
+    .route({
+      summary: "Chat",
+      description: "Streams chat from model",
+      tags: ["ai"],
+    })
+    .input(chatMessageType)
+    .handler(async function* ({ input }) {
+      const stream = streamText({
+        model: google("gemini-1.5-flash"),
+        messages: input.messages as unknown as CoreMessage[], // Cast if necessary, ArkType ensures structure
       });
 
       yield* stream.toDataStream();

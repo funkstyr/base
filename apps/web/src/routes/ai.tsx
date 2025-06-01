@@ -14,7 +14,8 @@ export const Route = createFileRoute("/ai")({
 
 function RouteComponent() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
-    api: `${import.meta.env.VITE_SERVER_URL}/ai`,
+    api: `${import.meta.env.VITE_SERVER_URL}/ai/chat`,
+    credentials: "include",
   });
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
