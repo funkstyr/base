@@ -1,9 +1,8 @@
-import { aiRouter } from "./ai";
 import { protectedProcedure, publicProcedure } from "./orpc";
 import { todoRouter } from "./todo";
 
 export const appRouter = {
-  ai: aiRouter,
+  // ai: aiRouter, // TODO: enable if the BAD_REQUEST error is resolved
   todo: todoRouter,
 
   health: publicProcedure

@@ -4,13 +4,12 @@ import { createMarkdownFromOpenApi } from "@scalar/openapi-to-markdown";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+import { stream } from "hono/streaming";
 
-import { google } from "@ai-sdk/google";
+import { streamTextHandler } from "@base/ai/stream-text";
 import { openApiSpec } from "@base/api/open-api";
 import { rpc } from "@base/api/rpc";
 import { auth } from "@base/auth";
-import { streamText } from "ai";
-import { stream } from "hono/streaming";
 
 const app = new Hono();
 
@@ -48,11 +47,7 @@ app.get("/llms.txt", async (c) => {
 app.post("/ai/chat", async (c) => {
   const body = await c.req.json();
   const messages = body.messages || [];
-
-  const result = streamText({
-    model: google("gemini-1.5-flash"),
-    messages,
-  });
+  const result = streamTextHandler(messages);
 
   return stream(c, (stream) => stream.pipe(result.toDataStream()));
 });
@@ -61,10 +56,7 @@ app.post("/ai/chat", async (c) => {
 //   const body = await c.req.json();
 //   const messages = body.messages || [];
 
-//   const result = await generateText({
-//     model: google("gemini-1.5-flash"),
-//     messages,
-//   });
+//   const result = await generateTextHandler(messages);
 
 //   return c.json(result);
 // });

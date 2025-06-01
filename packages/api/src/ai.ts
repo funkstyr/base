@@ -5,6 +5,7 @@ import { type } from "arktype";
 import { chatMessageType } from "./lib/ai";
 import { publicProcedure } from "./orpc";
 
+// TODO: figure out why this is causing BAD_REQUEST, domain must be an object(was undefined)
 export const aiRouter = {
   generate: publicProcedure
     .route({

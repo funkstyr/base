@@ -64,15 +64,12 @@
     "apps/server": {
       "name": "server",
       "dependencies": {
-        "@ai-sdk/google": "^1.2.18",
+        "@base/ai": "workspace:^",
         "@base/api": "workspace:",
         "@base/auth": "workspace:",
         "@base/db": "workspace:",
-        "@better-auth/expo": "^1.2.8",
-        "@orpc/server": "^1.3.0",
         "@scalar/hono-api-reference": "^0.9.1",
         "@scalar/openapi-to-markdown": "^0.2.5",
-        "ai": "^4.3.16",
         "dotenv": "^16.5.0",
         "hono": "^4.7.11",
       },
@@ -116,6 +113,24 @@
         "postcss": "^8.5.4",
         "tailwindcss": "^4.1.8",
         "vite": "npm:rolldown-vite@latest",
+      },
+    },
+    "packages/ai": {
+      "name": "@base/ai",
+      "dependencies": {
+        "@ai-sdk/google": "^1.2.18",
+        "@base/auth": "workspace:^",
+        "@base/db": "workspace:^",
+        "ai": "^4.3.16",
+        "arktype": "^2.1.20",
+        "dotenv": "^16.5.0",
+        "hono": "^4.7.11",
+      },
+      "devDependencies": {
+        "@base/typescript": "workspace:",
+        "@types/bun": "^1.2.15",
+        "tsc-alias": "^1.8.16",
+        "typescript": "^5.8.3",
       },
     },
     "packages/api": {
@@ -465,6 +480,8 @@
     "@babel/traverse--for-generate-function-map": ["@babel/traverse@7.27.1", "", { "dependencies": { "@babel/code-frame": "^7.27.1", "@babel/generator": "^7.27.1", "@babel/parser": "^7.27.1", "@babel/template": "^7.27.1", "@babel/types": "^7.27.1", "debug": "^4.3.1", "globals": "^11.1.0" } }, "sha512-ZCYtZciz1IWJB4U61UPu4KEaqyfj+r5T1Q5mqPo+IBpcG9kHv30Z0aD8LXPgC1trYa6rK0orRyAhqUgk4MjmEg=="],
 
     "@babel/types": ["@babel/types@7.27.3", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.27.1" } }, "sha512-Y1GkI4ktrtvmawoSq+4FCVHNryea6uR+qUQy0AGxLSsjCX0nVmkYQMBLHDkXZuo5hGx7eYdnIaslsdBFm7zbUw=="],
+
+    "@base/ai": ["@base/ai@workspace:packages/ai"],
 
     "@base/api": ["@base/api@workspace:packages/api"],
 
