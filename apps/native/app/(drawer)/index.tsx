@@ -8,7 +8,7 @@ import { SignUp } from "@/components/sign-up";
 import { orpc, queryClient } from "@/utils/orpc";
 
 export default function Home() {
-  const healthCheck = useQuery(orpc.healthCheck.queryOptions());
+  const healthCheck = useQuery(orpc.health.queryOptions());
   const privateData = useQuery(orpc.privateData.queryOptions());
   const { data: session } = authClient.useSession();
 
