@@ -4,7 +4,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { admin, openAPI, organization, username } from "better-auth/plugins";
 
 import { db } from "@base/db/client";
-import * as schema from "@base/db/schema/user";
+import * as schema from "@base/db/schema/auth";
 
 export const auth: ReturnType<typeof betterAuth> = betterAuth({
   database: drizzleAdapter(db, {
@@ -16,5 +16,16 @@ export const auth: ReturnType<typeof betterAuth> = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
-  plugins: [expo(), admin(), openAPI(), organization(), username()],
+  plugins: [
+    expo(),
+    admin(),
+    openAPI(),
+    organization({
+      teams: {
+        enabled: true,
+        maximumTeams: 4, // Optional: limit teams per organization
+      },
+    }),
+    username(),
+  ],
 });
