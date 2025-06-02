@@ -1,11 +1,12 @@
 import { expo } from "@better-auth/expo";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { admin, openAPI, organization, username } from "better-auth/plugins";
 
 import { db } from "@base/db/client";
 import * as schema from "@base/db/schema/user";
 
-export const auth = betterAuth({
+export const auth: ReturnType<typeof betterAuth> = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
 
@@ -15,5 +16,5 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
-  plugins: [expo()],
+  plugins: [expo(), admin(), openAPI(), organization(), username()],
 });

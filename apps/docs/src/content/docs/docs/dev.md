@@ -5,9 +5,10 @@ description: A reference page in my new Starlight docs site.
 
 ## Links
 
-- [web app](http://localhost:3001)
-- [api docs](http://localhost:3000)
 - [docs](http://localhost:4321)
+- [web app](http://localhost:3001)
+- [auth api docs](http://localhost:3000/api/auth/reference)
+- [web api docs](http://localhost:3000)
 
 ## Commands
 

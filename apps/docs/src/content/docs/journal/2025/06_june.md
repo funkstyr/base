@@ -20,6 +20,7 @@ description: Getting hosted.
       * There is a non redirect way if that feels better: [docs](https://tanstack.com/router/latest/docs/framework/react/guide/authenticated-routes#non-redirected-authentication) 
 * **Documentation:**
     * [x] Added open api docs for api
+      * Auth api docs too 
       * Scalar UI + llms.txt/openapi.json
 ---
 
@@ -29,5 +30,13 @@ description: Getting hosted.
 * Figure out simple game room mechanics
   * tic-tac-toe
   * war/egyptian rat
+
+---
+
+## Overall Mood/Notes
+
+* Arktype is fine, but most things output a schema for zod only
+  * a lot more tools reference zod
+  * may try and convert to zod v4 soon
 
 ---
