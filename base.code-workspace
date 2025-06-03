@@ -61,6 +61,9 @@
       "**/*.tsbuildinfo": true,
       "**/tsbuildinfo.json": true
     },
-    "cSpell.words": ["clsx", "tanstack", "tiptap"]
+    "cSpell.words": ["clsx", "tanstack", "tiptap"],
+    "[markdown]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
   }
 }

@@ -1,7 +1,27 @@
 ---
-title: Dev
-description: Quick links and commands for dev environment.
+title: Dev Environment
+description: Quick links and commands for local environment.
 ---
+
+## Tech
+
+1. [bun](https://bun.sh/)
+2. [code](https://code.visualstudio.com/)
+3. [warp](https://www.warp.dev/)
+
+#### Clone
+
+```bash
+git clone https://github.com/funkstyr/base.git
+cd base
+```
+
+#### Install and Run
+
+```bash
+bun i
+bun dev
+```
 
 ## Links
 
@@ -21,8 +41,3 @@ description: Quick links and commands for dev environment.
 - `bun build`: builds every app
 - `bun up-deps`: minor update for every package
   - `bun up-deps:major` major update for every package
-
-## Environment
-
-1. [bun](https://bun.sh/)
-2. [warp](https://www.warp.dev/)
