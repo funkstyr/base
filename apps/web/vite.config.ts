@@ -10,7 +10,11 @@ export default defineConfig({
     TanStackRouterVite({
       autoCodeSplitting: true,
     }),
-    react(),
+    react({
+      babel: {
+        plugins: [["babel-plugin-react-compiler", {}]],
+      },
+    }),
   ],
   resolve: {
     alias: {
