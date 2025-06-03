@@ -30,6 +30,7 @@ description: Getting hosted.
 * Figure out simple game room mechanics
   * tic-tac-toe
   * war/egyptian rat
+* Build example using atproto
 
 ---
 
@@ -38,5 +39,7 @@ description: Getting hosted.
 * Arktype is fine, but most things output a schema for zod only
   * a lot more tools reference zod
   * may try and convert to zod v4 soon
+* Need to figure out why any new ui pkg doesn't import to web app
+  * `@base/posthog` causes vite import error
 
 ---
