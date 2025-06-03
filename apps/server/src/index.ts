@@ -44,6 +44,14 @@ app.get("/llms.txt", async (c) => {
   return c.text(markdown);
 });
 
+app.get("/auth/llms.txt", async (c) => {
+  // @ts-expect-error learn to type this
+  const authSpec = await auth.api.generateOpenAPISchema();
+  const markdown = await createMarkdownFromOpenApi(JSON.stringify(authSpec));
+
+  return c.text(markdown);
+});
+
 app.post("/ai/chat", async (c) => {
   const body = await c.req.json();
   const messages = body.messages || [];

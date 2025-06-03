@@ -8,7 +8,9 @@ description: Quick links and commands for dev environment.
 - [docs](http://localhost:4321)
 - [web app](http://localhost:3001)
 - [web api docs](http://localhost:3000)
+  - [llms.txt](http://localhost:3000/llms.txt)
 - [auth api docs](http://localhost:3000/api/auth/reference)
+  - [llms.txt](http://localhost:3000/auth/llms.txt)
 
 ## Commands
 
