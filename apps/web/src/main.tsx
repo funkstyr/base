@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 
 import { orpc, queryClient } from "@/lib/orpc-client";
 import { Loader } from "@base/ui/components/loader";
+import * as React from "react";
 import { routeTree } from "./routeTree.gen";
 
 const router = createRouter({
@@ -29,5 +30,9 @@ if (!rootElement) throw new Error("Root element not found");
 
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
-  root.render(<RouterProvider router={router} />);
+  root.render(
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>,
+  );
 }

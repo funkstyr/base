@@ -1,0 +1,25 @@
+{
+  "name": "@base/posthog",
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc && tsc-alias",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "posthog-js": "^1.249.1"
+  },
+  "devDependencies": {
+    "@base/typescript": "workspace:",
+    "@types/bun": "^1.2.15",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.8.3"
+  }
+}
