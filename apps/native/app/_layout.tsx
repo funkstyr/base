@@ -11,8 +11,8 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../global.css";
 import { setAndroidNavigationBar } from "@/lib/android-navigation-bar";
 import { NAV_THEME } from "@/lib/constants";
+import { queryClient } from "@/lib/orpc-client";
 import { useColorScheme } from "@/lib/use-color-scheme";
-import { queryClient } from "@/utils/orpc";
 import React, { useRef } from "react";
 import { Platform } from "react-native";
 

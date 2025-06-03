@@ -1,5 +1,5 @@
 import { authClient } from "@/lib/auth-client";
-import { queryClient } from "@/utils/orpc";
+import { queryClient } from "@/lib/orpc-client";
 import { useState } from "react";
 import {
   ActivityIndicator,

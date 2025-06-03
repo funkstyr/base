@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 import { Container } from "@/components/container";
-import { orpc } from "@/utils/orpc";
+import { orpc } from "@/lib/orpc-client";
 
 export default function TodosScreen() {
   const [newTodoText, setNewTodoText] = useState("");
