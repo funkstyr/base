@@ -1,14 +1,14 @@
 ---
 title: Dev
-description: A reference page in my new Starlight docs site.
+description: Quick links and commands for dev environment.
 ---
 
 ## Links
 
 - [docs](http://localhost:4321)
 - [web app](http://localhost:3001)
-- [auth api docs](http://localhost:3000/api/auth/reference)
 - [web api docs](http://localhost:3000)
+- [auth api docs](http://localhost:3000/api/auth/reference)
 
 ## Commands
 

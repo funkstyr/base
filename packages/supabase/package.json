@@ -1,0 +1,36 @@
+{
+  "name": "@base/supabase",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./client/*": {
+      "types": "./dist/client/*.d.ts",
+      "default": "./src/client/*.ts"
+    },
+    "./types/*": {
+      "types": "./dist/types/*.d.ts",
+      "default": "./src/types/*.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc && tsc-alias",
+    "type-check": "tsc --noEmit",
+    "generate": "supabase gen types --lang=typescript --project-id udnoswntjyuwysnpetel --schema public > src/types/db.generated.ts"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.9",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@base/typescript": "workspace:",
+    "@types/bun": "^1.2.15",
+    "supabase": "^2.23.4",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.8.3"
+  }
+}

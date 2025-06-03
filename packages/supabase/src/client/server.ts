@@ -1,0 +1,64 @@
+import { createServerClient } from "@supabase/ssr";
+
+import type { Database } from "../types";
+
+const IGNORE_WARNINGS = [
+  "Using the user object as returned from supabase.auth.getSession()",
+];
+
+console.warn = (...args) => {
+  const match = args.find((arg) =>
+    typeof arg === "string"
+      ? IGNORE_WARNINGS.find((warning) => arg.includes(warning))
+      : false,
+  );
+  if (!match) {
+    console.warn(...args);
+  }
+};
+
+console.log = (...args) => {
+  const match = args.find((arg) =>
+    typeof arg === "string"
+      ? IGNORE_WARNINGS.find((warning) => arg.includes(warning))
+      : false,
+  );
+  if (!match) {
+    console.log(...args);
+  }
+};
+
+type CreateClientOptions = {
+  admin?: boolean;
+  schema?: "public" | "storage";
+};
+
+export async function createClient(options?: CreateClientOptions) {
+  const { admin = false, ...rest } = options ?? {};
+
+  const key = admin
+    ? (process.env.SUPABASE_SERVICE_KEY ?? "")
+    : (process.env.VITE_SUPABASE_ANON_KEY ?? "");
+
+  const auth = admin
+    ? {
+        persistSession: false,
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
+      }
+    : {};
+
+  return createServerClient<Database>(
+    process.env.VITE_SUPABASE_URL ?? "",
+    key,
+    {
+      ...rest,
+      cookies: {
+        //@ts-expect-error handle cookies
+        getAll: () => ({}),
+        setAll: () => ({}),
+      },
+      auth,
+    },
+  );
+}
