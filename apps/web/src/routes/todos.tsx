@@ -36,12 +36,12 @@ function TodosRoute() {
   );
   const toggleMutation = useMutation(
     orpc.todo.toggle.mutationOptions({
-      onSuccess: () => todos.refetch(),
+      onSuccess: () => void todos.refetch(),
     }),
   );
   const deleteMutation = useMutation(
     orpc.todo.delete.mutationOptions({
-      onSuccess: () => todos.refetch(),
+      onSuccess: () => void todos.refetch(),
     }),
   );
 

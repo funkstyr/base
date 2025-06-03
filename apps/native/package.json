@@ -10,8 +10,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@base/auth": "workspace:",
     "@base/api": "workspace:",
+    "@base/auth": "workspace:",
     "@base/db": "workspace:",
     "@expo/vector-icons": "^14.1.0",
     "@orpc/client": "^1.3.0",
@@ -22,7 +22,7 @@
     "@react-navigation/native": "^7.1.10",
     "@stardazed/streams-text-encoding": "^1.0.2",
     "@tanstack/react-form": "^1.12.0",
-    "@tanstack/react-query": "^5.79.0",
+    "@tanstack/react-query": "^5.79.2",
     "@ungap/structured-clone": "^1.3.0",
     "expo": "^53.0.9",
     "expo-constants": "~17.1.6",

@@ -1,0 +1,38 @@
+{
+  "name": "@base/atproto",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc && tsc-alias",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.13.35",
+    "@atproto/common": "^0.4.11",
+    "@atproto/identity": "^0.4.8",
+    "@atproto/lexicon": "^0.4.11",
+    "@atproto/oauth-client-node": "^0.2.20",
+    "@atproto/sync": "^0.1.23",
+    "@atproto/syntax": "^0.3.4",
+    "@atproto/xrpc-server": "^0.7.18",
+    "arktype": "^2.1.20",
+    "hono": "^4.7.11"
+  },
+  "devDependencies": {
+    "@atproto/lex-cli": "^0.4.1",
+    "@base/typescript": "workspace:",
+    "@types/bun": "^1.2.15",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.8.3"
+  }
+}
