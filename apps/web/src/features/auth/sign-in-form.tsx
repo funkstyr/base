@@ -1,5 +1,5 @@
 import { useForm } from "@tanstack/react-form";
-import { useNavigate, useSearch } from "@tanstack/react-router";
+import { useRouter } from "@tanstack/react-router";
 import { type } from "arktype";
 import clsx from "clsx";
 import { toast } from "sonner";
@@ -20,12 +20,9 @@ export default function SignInForm({
   onSwitchToSignUp: () => void;
 }) {
   const { isPending } = auth.useSession();
-
-  const navigate = useNavigate({
-    from: "/login",
-  });
-
-  const params = useSearch({ from: "/login" }) as { redirect?: string };
+  const router = useRouter();
+  const redirectPath =
+    (router.latestLocation.search as Record<string, string>)?.redirect ?? "";
 
   const form = useForm({
     defaultValues: {
@@ -40,8 +37,8 @@ export default function SignInForm({
         },
         {
           onSuccess: () => {
-            navigate({
-              to: params.redirect ? params.redirect : "/",
+            router.navigate({
+              to: redirectPath ? redirectPath : "/todos",
             });
             toast.success("Sign in successful");
           },
@@ -65,8 +62,6 @@ export default function SignInForm({
 
   return (
     <div className="mx-auto mt-10 w-full max-w-md p-6">
-      <h1 className="mb-6 text-center font-bold text-3xl">Welcome Back</h1>
-
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -150,7 +145,7 @@ export default function SignInForm({
         <Button
           variant="link"
           onClick={onSwitchToSignUp}
-          className="text-indigo-600 hover:text-indigo-800"
+          className="text-purple-500 hover:text-purple-700"
         >
           Need an account? Sign Up
         </Button>
