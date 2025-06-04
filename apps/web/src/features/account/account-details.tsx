@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell, Camera, Save, Shield, Trash2, User } from "lucide-react";
+import { Bell, Shield, Trash2, User } from "lucide-react";
 import type React from "react";
 import { useState } from "react";
 
@@ -15,12 +15,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@base/ui/components/alert-dialog";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@base/ui/components/avatar";
-import { Badge } from "@base/ui/components/badge";
 import { Button } from "@base/ui/components/button";
 import {
   Card,
@@ -39,26 +33,10 @@ import {
   TabsList,
   TabsTrigger,
 } from "@base/ui/components/tabs";
+import { AccountProfileCard } from "./profile-card";
 
-export default function AccountSettings() {
+export default function AccountDetails() {
   const [isLoading, setIsLoading] = useState(false);
-  const [profileData, setProfileData] = useState({
-    name: "John Doe",
-    email: "john.doe@example.com",
-    username: "johndoe",
-    bio: "Software developer passionate about creating amazing user experiences.",
-    website: "https://johndoe.dev",
-    location: "San Francisco, CA",
-  });
-
-  const handleProfileUpdate = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsLoading(false);
-    // Show success message
-  };
 
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -110,91 +88,7 @@ export default function AccountSettings() {
         </TabsList>
 
         <TabsContent value="profile" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Profile Information</CardTitle>
-              <CardDescription>
-                Update your profile details and public information
-              </CardDescription>
-            </CardHeader>
-            <form onSubmit={handleProfileUpdate}>
-              <CardContent className="space-y-6">
-                {/* Profile Picture */}
-                <div className="flex items-center gap-6">
-                  <Avatar className="h-24 w-24">
-                    <AvatarImage
-                      src="/placeholder.svg?height=96&width=96"
-                      alt="Profile picture"
-                    />
-                    <AvatarFallback className="text-lg">JD</AvatarFallback>
-                  </Avatar>
-                  <div className="space-y-2">
-                    <Button variant="outline" size="sm" className="gap-2">
-                      <Camera className="h-4 w-4" />
-                      Change Photo
-                    </Button>
-                    <p className="text-muted-foreground text-sm">
-                      JPG, GIF or PNG. 1MB max.
-                    </p>
-                  </div>
-                </div>
-
-                <Separator />
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
-                  <div className="flex items-center gap-2">
-                    <Input
-                      id="email"
-                      type="email"
-                      value={profileData.email}
-                      onChange={(e) =>
-                        setProfileData({
-                          ...profileData,
-                          email: e.target.value,
-                        })
-                      }
-                    />
-                    <Badge variant="secondary">Verified</Badge>
-                  </div>
-                </div>
-
-                {/* Form Fields */}
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      value={profileData.name}
-                      onChange={(e) =>
-                        setProfileData({ ...profileData, name: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="username">Username</Label>
-                    <Input
-                      id="username"
-                      value={profileData.username}
-                      onChange={(e) =>
-                        setProfileData({
-                          ...profileData,
-                          username: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                </div>
-              </CardContent>
-
-              <CardFooter className="mt-4">
-                <Button type="submit" disabled={isLoading} className="gap-2">
-                  <Save className="h-4 w-4" />
-                  {isLoading ? "Saving..." : "Save Changes"}
-                </Button>
-              </CardFooter>
-            </form>
-          </Card>
+          <AccountProfileCard />
         </TabsContent>
 
         <TabsContent value="security" className="space-y-6">

@@ -1,4 +1,4 @@
-import AccountSettings from "@/features/account/account-details";
+import AccountDetails from "@/features/account/account-details";
 import { beforeLoad } from "@/features/auth/protected-route";
 import { createFileRoute } from "@tanstack/react-router";
 
@@ -8,5 +8,5 @@ export const Route = createFileRoute("/account")({
 });
 
 function RouteComponent() {
-  return <AccountSettings />;
+  return <AccountDetails />;
 }
