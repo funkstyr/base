@@ -3,8 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 import { beforeLoad } from "@/features/auth/protected-route";
-import { authClient } from "@/lib/auth-client";
 import { orpc } from "@/lib/orpc-client";
+import { auth } from "@base/auth/client/web";
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent,
@@ -12,10 +12,8 @@ export const Route = createFileRoute("/dashboard")({
 });
 
 function RouteComponent() {
-  const { data: session, isPending } = authClient.useSession();
-
   const navigate = Route.useNavigate();
-
+  const { data: session, isPending } = auth.useSession();
   const privateData = useQuery(orpc.privateData.queryOptions());
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>

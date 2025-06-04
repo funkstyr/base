@@ -1,5 +1,5 @@
-import { authClient } from "@/lib/auth-client";
 import { queryClient } from "@/lib/orpc-client";
+import { auth } from "@base/auth/client/native";
 import { useState } from "react";
 import {
   ActivityIndicator,
@@ -19,7 +19,7 @@ export function SignIn() {
     setIsLoading(true);
     setError(null);
 
-    await authClient.signIn.email(
+    await auth.signIn.email(
       {
         email,
         password,

@@ -1,10 +1,10 @@
 import { redirect } from "@tanstack/react-router";
 import type { ParsedLocation } from "@tanstack/react-router";
 
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@base/auth/client/web";
 
 export async function beforeLoad({ location }: { location: ParsedLocation }) {
-  const { data: session } = await authClient.getSession();
+  const { data: session } = await auth.getSession();
 
   if (!session) {
     throw redirect({

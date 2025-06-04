@@ -3,7 +3,7 @@
 import { Dices, SquareTerminal } from "lucide-react";
 import type * as React from "react";
 
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@base/auth/client/web";
 import {
   Sidebar,
   SidebarContent,
@@ -70,7 +70,7 @@ const routes = {
 };
 
 export function AppSidebar(props: AppSidebarProps) {
-  const { data: session } = authClient.useSession();
+  const { data: session } = auth.useSession();
 
   return (
     <Sidebar variant="inset" collapsible="icon" {...props}>

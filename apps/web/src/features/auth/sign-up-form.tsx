@@ -3,7 +3,7 @@ import { useNavigate, useSearch } from "@tanstack/react-router";
 import { type } from "arktype";
 import { toast } from "sonner";
 
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@base/auth/client/web";
 import { Button } from "@base/ui/components/button";
 import { Input } from "@base/ui/components/input";
 import { Label } from "@base/ui/components/label";
@@ -17,7 +17,7 @@ export default function SignUpForm({
   const navigate = useNavigate({
     from: "/",
   });
-  const { isPending } = authClient.useSession();
+  const { isPending } = auth.useSession();
   const params = useSearch({ from: "/login" }) as { redirect?: string };
 
   const form = useForm({
@@ -28,7 +28,7 @@ export default function SignUpForm({
       username: "",
     },
     onSubmit: async ({ value }) => {
-      await authClient.signUp.email(
+      await auth.signUp.email(
         {
           email: value.email,
           password: value.password,

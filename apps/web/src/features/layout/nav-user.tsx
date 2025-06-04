@@ -3,7 +3,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { BadgeCheck, Bell, ChevronsUpDown, LogIn, LogOut } from "lucide-react";
 
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@base/auth/client/web";
 import { Avatar, AvatarFallback } from "@base/ui/components/avatar";
 import {
   DropdownMenu,
@@ -25,13 +25,13 @@ export function NavUser() {
   const navigate = useNavigate();
   const { isMobile } = useSidebar();
 
-  const { data: session } = authClient.useSession();
+  const { data: session } = auth.useSession();
   const initials = session?.user?.name
     ?.split(" ")
     .map((word) => word.charAt(0));
 
   const handleLogout = () => {
-    authClient.signOut({
+    auth.signOut({
       fetchOptions: {
         onSuccess: () => {
           navigate({
