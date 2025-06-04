@@ -1,5 +1,12 @@
 {
   "extends": "@base/typescript/internal-package.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@base/auth/*": ["./src/*"]
+    }
+  },
   "include": ["src"],
   "exclude": ["node_modules"]
 }

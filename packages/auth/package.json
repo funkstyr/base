@@ -9,6 +9,10 @@
     "./client/*": {
       "types": "./dist/client/*.d.ts",
       "default": "./src/client/*.ts"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./src/*.ts"
     }
   },
   "scripts": {

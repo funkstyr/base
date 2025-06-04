@@ -3,6 +3,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { BadgeCheck, Bell, ChevronsUpDown, LogIn, LogOut } from "lucide-react";
 
+import { getInitials } from "@base/auth/client/get-initials";
 import { auth } from "@base/auth/client/web";
 import { Avatar, AvatarFallback } from "@base/ui/components/avatar";
 import {
@@ -26,9 +27,7 @@ export function NavUser() {
   const { isMobile } = useSidebar();
 
   const { data: session } = auth.useSession();
-  const initials = session?.user?.name
-    ?.split(" ")
-    .map((word) => word.charAt(0));
+  const initials = getInitials(session);
 
   const handleLogout = () => {
     auth.signOut({

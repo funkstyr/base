@@ -1,6 +1,8 @@
 import { type } from "arktype";
+import { Camera, Save } from "lucide-react";
 import { toast } from "sonner";
 
+import { getInitials } from "@base/auth/client/get-initials";
 import { auth } from "@base/auth/client/web";
 import {
   Avatar,
@@ -21,23 +23,24 @@ import { Input } from "@base/ui/components/input";
 import { Label } from "@base/ui/components/label";
 import { Separator } from "@base/ui/components/separator";
 import { useForm } from "@tanstack/react-form";
-import { Camera, Save } from "lucide-react";
 
 export function AccountProfileCard() {
-  const { data, isPending } = auth.useSession();
-  const initials = data?.user?.name?.split(" ").map((word) => word.charAt(0));
+  const { data: session } = auth.useSession();
+  const initials = getInitials(session);
 
   const form = useForm({
     defaultValues: {
-      name: data?.user.name ?? "",
-      username: data?.user.username ?? "",
+      name: session?.user.name ?? "",
+      username: session?.user.username ?? "",
     },
     onSubmit: async ({ value }) => {
       await auth.updateUser(
         {
           name: value.name,
           username:
-            value.username !== data?.user.username ? value.username : undefined,
+            value.username !== session?.user.username
+              ? value.username
+              : undefined,
         },
         {
           onSuccess: () => {
@@ -63,6 +66,8 @@ export function AccountProfileCard() {
     void form.handleSubmit();
   };
 
+  const isLoading = form.state.isSubmitting;
+
   return (
     <Card>
       <CardHeader>
@@ -70,31 +75,34 @@ export function AccountProfileCard() {
         <CardDescription>
           Update your profile details and public information
         </CardDescription>
+
+        <div className="mt-4 flex items-center gap-6">
+          <Avatar className="h-24 w-24">
+            <AvatarImage
+              src="/placeholder.svg?height=96&width=96"
+              alt="Profile picture"
+            />
+
+            <AvatarFallback className="text-lg uppercase">
+              {initials}
+            </AvatarFallback>
+          </Avatar>
+
+          <div className="space-y-2">
+            <Button variant="outline" size="sm" className="gap-2">
+              <Camera className="h-4 w-4" />
+              Change Photo
+            </Button>
+
+            <p className="text-muted-foreground text-sm">
+              JPG, GIF or PNG. 1MB max.
+            </p>
+          </div>
+        </div>
       </CardHeader>
+
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-6">
-          {/* Profile Picture */}
-          <div className="flex items-center gap-6">
-            <Avatar className="h-24 w-24">
-              <AvatarImage
-                src="/placeholder.svg?height=96&width=96"
-                alt="Profile picture"
-              />
-              <AvatarFallback className="text-lg uppercase">
-                {initials}
-              </AvatarFallback>
-            </Avatar>
-            <div className="space-y-2">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Camera className="h-4 w-4" />
-                Change Photo
-              </Button>
-              <p className="text-muted-foreground text-sm">
-                JPG, GIF or PNG. 1MB max.
-              </p>
-            </div>
-          </div>
-
           <Separator />
 
           <div className="space-y-2">
@@ -103,14 +111,13 @@ export function AccountProfileCard() {
               <Input
                 id="email"
                 type="email"
-                value={data?.user.email ?? ""}
+                value={session?.user.email ?? ""}
                 disabled
               />
               <Badge variant="secondary">Verified</Badge>
             </div>
           </div>
 
-          {/* Form Fields */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="space-y-2">
               <form.Field name="name">
@@ -159,9 +166,9 @@ export function AccountProfileCard() {
         </CardContent>
 
         <CardFooter className="mt-4">
-          <Button type="submit" disabled={isPending} className="gap-2">
+          <Button type="submit" disabled={isLoading} className="gap-2">
             <Save className="h-4 w-4" />
-            {isPending ? "Saving..." : "Save Changes"}
+            {isLoading ? "Saving..." : "Save Changes"}
           </Button>
         </CardFooter>
       </form>
