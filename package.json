@@ -22,10 +22,14 @@
     "db:studio": "turbo -F server db:studio",
     "db:generate": "turbo -F server db:generate",
     "db:migrate": "turbo -F server db:migrate",
+    "build:_": "",
     "build": "turbo build",
-    "build:web": "turbo build -F web build",
-    "build:server": "turbo build -F server build",
-    "build:docs": "turbo build -F docs build"
+    "build:web": "turbo -F web build",
+    "build:server": "turbo -F server build",
+    "build:docs": "turbo -F docs build",
+    "docker:_": "",
+    "docker:build": "docker build -f ./apps/server/Dockerfile -t base:dev .",
+    "docker:run": ""
   },
   "dependencies": {},
   "devDependencies": {

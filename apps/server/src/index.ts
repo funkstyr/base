@@ -2,6 +2,7 @@ import "dotenv/config";
 import { Scalar } from "@scalar/hono-api-reference";
 import { createMarkdownFromOpenApi } from "@scalar/openapi-to-markdown";
 import { Hono } from "hono";
+import { serveStatic } from "hono/bun";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import { stream } from "hono/streaming";
@@ -27,18 +28,18 @@ app.use(
 app.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
 
 app.use("/rpc/*", async (c, next) => rpc.handler("/rpc", c, next));
-app.get("/openapi.json", (c) => c.json(openApiSpec));
+app.get("/rpc/openapi.json", (c) => c.json(openApiSpec));
 app.get(
-  "/",
+  "/rpc/docs",
   Scalar({
-    url: "/",
+    url: "/rpc/docs",
     pageTitle: "Base Api Docs",
     theme: "alternate",
-    sources: [{ url: "/openapi.json" }],
+    sources: [{ url: "/rpc/openapi.json" }],
   }),
 );
 
-app.get("/llms.txt", async (c) => {
+app.get("/rpc/llms.txt", async (c) => {
   const markdown = await createMarkdownFromOpenApi(JSON.stringify(openApiSpec));
 
   return c.text(markdown);
@@ -59,6 +60,13 @@ app.post("/ai/chat", async (c) => {
 
   return stream(c, (stream) => stream.pipe(result.toDataStream()));
 });
+
+app.get(
+  "*",
+  serveStatic({
+    root: process.env.NODE_ENV === "production" ? "./spa" : "../../web/dist",
+  }),
+);
 
 // app.post("/ai/chat", async (c) => {
 //   const body = await c.req.json();
