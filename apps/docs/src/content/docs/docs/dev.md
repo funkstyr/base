@@ -3,12 +3,6 @@ title: Dev Environment
 description: Quick links and commands for local environment.
 ---
 
-## Tech
-
-1. [bun](https://bun.sh/)
-2. [code](https://code.visualstudio.com/)
-3. [warp](https://www.warp.dev/)
-
 #### Clone
 
 ```bash
@@ -41,3 +35,9 @@ bun dev
 - `bun build`: builds every app
 - `bun up-deps`: minor update for every package
   - `bun up-deps:major` major update for every package
+
+## Tech
+
+1. [bun](https://bun.sh/)
+2. [code](https://code.visualstudio.com/)
+3. [warp](https://www.warp.dev/)
