@@ -3,20 +3,6 @@ title: Dev Environment
 description: Quick links and commands for local environment.
 ---
 
-#### Clone
-
-```bash
-git clone https://github.com/funkstyr/base.git
-cd base
-```
-
-#### Install and Run
-
-```bash
-bun i
-bun dev
-```
-
 ## Links
 
 - [docs](http://localhost:4321)
@@ -35,6 +21,25 @@ bun dev
 - `bun build`: builds every app
 - `bun up-deps`: minor update for every package
   - `bun up-deps:major` major update for every package
+
+## Setup
+
+1. [Get](https://aistudio.google.com/app/u/1/apikey) gemini api key and paste in `apps/server/.env`
+
+> Clone and install deps
+
+```bash
+git clone https://github.com/funkstyr/base.git
+cd base
+bun i
+```
+
+> Postgres
+
+```bash
+cd tools/postgres && bun _dev
+cd packages/db && bun db:push
+```
 
 ## Tech
 
