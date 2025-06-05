@@ -24,6 +24,8 @@ description: Quick links and commands for local environment.
 
 ## Setup
 
+<br/>
+
 1. [Get](https://aistudio.google.com/app/u/1/apikey) gemini api key and paste in `apps/server/.env`
 
 > Clone and install deps
@@ -34,7 +36,10 @@ cd base
 bun i
 ```
 
-> Postgres
+<br/>
+<br/>
+
+> Postgres(local); Hosted: [setup](/docs/hosting/#supabase) supabase project and get connection string
 
 ```bash
 cd tools/postgres && bun _dev
