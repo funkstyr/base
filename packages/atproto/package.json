@@ -21,10 +21,10 @@
     "@atproto/common": "^0.4.11",
     "@atproto/identity": "^0.4.8",
     "@atproto/lexicon": "^0.4.11",
-    "@atproto/oauth-client-node": "^0.2.20",
-    "@atproto/sync": "^0.1.23",
+    "@atproto/oauth-client-node": "^0.2.21",
+    "@atproto/sync": "^0.1.24",
     "@atproto/syntax": "^0.3.4",
-    "@atproto/xrpc-server": "^0.7.18",
+    "@atproto/xrpc-server": "^0.7.19",
     "arktype": "^2.1.20",
     "hono": "^4.7.11"
   },
