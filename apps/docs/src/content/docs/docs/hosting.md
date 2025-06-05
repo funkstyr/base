@@ -51,6 +51,9 @@ Will probably create a way to combine the web SPA and the hono backed where it s
 
 ### Posthog
 
+1. Create project
+2. Copy variables into `apps/web/.env`
+
 <br/>
 
 ## Phase 2
