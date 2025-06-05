@@ -17,7 +17,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@ai-sdk/google": "^1.2.18",
+    "@ai-sdk/google": "^1.2.19",
     "@base/auth": "workspace:^",
     "@base/db": "workspace:^",
     "ai": "^4.3.16",

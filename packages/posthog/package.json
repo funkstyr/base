@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "dotenv": "^16.5.0",
-    "posthog-js": "^1.249.1"
+    "posthog-js": "^1.249.3"
   },
   "devDependencies": {
     "@base/typescript": "workspace:",
