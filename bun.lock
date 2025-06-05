@@ -150,6 +150,7 @@
         "@ai-sdk/google": "^1.2.19",
         "@base/auth": "workspace:^",
         "@base/db": "workspace:^",
+        "@base/supabase": "workspace:^",
         "@orpc/arktype": "^1.4.2",
         "@orpc/client": "^1.4.2",
         "@orpc/openapi": "^1.4.2",
@@ -162,9 +163,7 @@
       },
       "devDependencies": {
         "@base/typescript": "workspace:",
-        "@types/bun": "^1.2.15",
         "tsc-alias": "^1.8.16",
-        "typescript": "^5.8.3",
       },
     },
     "packages/atproto": {
@@ -197,6 +196,7 @@
         "better-auth": "^1.2.8",
         "dotenv": "^16.5.0",
         "expo-secure-store": "^14.2.3",
+        "jose": "^6.0.11",
       },
       "devDependencies": {
         "@base/typescript": "workspace:",
@@ -245,10 +245,8 @@
       },
       "devDependencies": {
         "@base/typescript": "workspace:",
-        "@types/bun": "^1.2.15",
         "supabase": "^2.24.3",
         "tsc-alias": "^1.8.16",
-        "typescript": "^5.8.3",
       },
     },
     "packages/ui": {
@@ -2280,7 +2278,7 @@
 
     "jiti": ["jiti@1.21.7", "", { "bin": { "jiti": "bin/jiti.js" } }, "sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A=="],
 
-    "jose": ["jose@5.10.0", "", {}, "sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg=="],
+    "jose": ["jose@6.0.11", "", {}, "sha512-QxG7EaliDARm1O1S8BGakqncGT9s25bKL1WSf6/oa17Tkqwi8D2ZNglqCF+DsYF88/rV66Q/Q2mFAy697E1DUg=="],
 
     "js-tokens": ["js-tokens@4.0.0", "", {}, "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="],
 
@@ -3434,6 +3432,8 @@
 
     "@atproto-labs/identity-resolver/@atproto/syntax": ["@atproto/syntax@0.4.0", "", {}, "sha512-b9y5ceHS8YKOfP3mdKmwAx5yVj9294UN7FG2XzP6V5aKUdFazEYRnR9m5n5ZQFKa3GNvz7de9guZCJ/sUTcOAA=="],
 
+    "@atproto/jwk-jose/jose": ["jose@5.10.0", "", {}, "sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg=="],
+
     "@atproto/lexicon/@atproto/syntax": ["@atproto/syntax@0.4.0", "", {}, "sha512-b9y5ceHS8YKOfP3mdKmwAx5yVj9294UN7FG2XzP6V5aKUdFazEYRnR9m5n5ZQFKa3GNvz7de9guZCJ/sUTcOAA=="],
 
     "@atproto/oauth-client/@atproto/xrpc": ["@atproto/xrpc@0.7.0", "", { "dependencies": { "@atproto/lexicon": "^0.4.11", "zod": "^3.23.8" } }, "sha512-SfhP9dGx2qclaScFDb58Jnrmim5nk4geZXCqg6sB0I/KZhZEkr9iIx1hLCp+sxkIfEsmEJjeWO4B0rjUIJW5cw=="],
@@ -3745,6 +3745,8 @@
     "babel-plugin-jest-hoist/@babel/types": ["@babel/types@7.27.1", "", { "dependencies": { "@babel/helper-string-parser": "^7.27.1", "@babel/helper-validator-identifier": "^7.27.1" } }, "sha512-+EzkxvLNfiUeKMgy/3luqfsCWFRXLb7U6wNQTk60tovuckwB15B191tJWvpp4HjiQWdJkCxO3Wbvc6jlk3Xb2Q=="],
 
     "babel-plugin-polyfill-corejs2/semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
+
+    "better-auth/jose": ["jose@5.10.0", "", {}, "sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg=="],
 
     "better-auth/zod": ["zod@3.25.31", "", {}, "sha512-SVCtUpZ1D9TFcRnCY7wlCpGEzV4+2HlXnJiwrgq1T93m98BIT6M5lbxRrEm7v6pYZXV4QNQo1t2KVv93JXk6XA=="],
 

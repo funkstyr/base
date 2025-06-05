@@ -38,7 +38,10 @@ Will probably create a way to combine the web SPA and the hono backed where it s
       1. connect(header) > direct connection
    4. Copy connection string + replace password in `apps/server/.env` & `packages/db/.env`
       1. `cd packages/db && bun db:push`
-   5. integrations: github, vercel
+   5. Get JWT secret
+      1. project settings > Data Api(Configuration) > JWT Settings
+      2. copy into `apps/server/.env`
+   6. integrations: github, vercel
       1. github
          1. update supbase directory > `packages/supabase`
 2. Create new supabase pkg

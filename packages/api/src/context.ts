@@ -1,6 +1,7 @@
 import type { Context as HonoContext } from "hono";
 
 import { auth } from "@base/auth";
+// import { createClient } from "@base/supabase/client/server";
 
 export type CreateContextOptions = {
   context: HonoContext;
@@ -11,8 +12,18 @@ export async function createContext({ context }: CreateContextOptions) {
     headers: context.req.raw.headers,
   });
 
+  // try {
+  //   const supabase = createClient(
+  //     // @ts-expect-error type thise
+  //     { token: session?.supabaseAccessToken ?? "" }
+  //   );
+  // } catch (error) {
+  //   console.log("error", error);
+  // }
+
   return {
     session,
+    // supabase,
   };
 }
 

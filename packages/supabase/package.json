@@ -13,6 +13,14 @@
     "./types/*": {
       "types": "./dist/types/*.d.ts",
       "default": "./src/types/*.ts"
+    },
+    "./ui/*": {
+      "types": "./dist/ui/*.d.ts",
+      "default": "./src/ui/*.ts"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./src/*.ts"
     }
   },
   "scripts": {
@@ -28,9 +36,7 @@
   },
   "devDependencies": {
     "@base/typescript": "workspace:",
-    "@types/bun": "^1.2.15",
     "supabase": "^2.24.3",
-    "tsc-alias": "^1.8.16",
-    "typescript": "^5.8.3"
+    "tsc-alias": "^1.8.16"
   }
 }

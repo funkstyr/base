@@ -29,16 +29,17 @@ console.log = (...args) => {
 };
 
 type CreateClientOptions = {
+  token?: string;
   admin?: boolean;
   schema?: "public" | "storage";
 };
 
 export async function createClient(options?: CreateClientOptions) {
-  const { admin = false, ...rest } = options ?? {};
+  const { admin = false, token = "", ...rest } = options ?? {};
 
   const key = admin
     ? (process.env.SUPABASE_SERVICE_KEY ?? "")
-    : (process.env.VITE_SUPABASE_ANON_KEY ?? "");
+    : (process.env.SUPABASE_ANON_KEY ?? "");
 
   const auth = admin
     ? {
@@ -48,17 +49,18 @@ export async function createClient(options?: CreateClientOptions) {
       }
     : {};
 
-  return createServerClient<Database>(
-    process.env.VITE_SUPABASE_URL ?? "",
-    key,
-    {
-      ...rest,
-      cookies: {
-        //@ts-expect-error handle cookies
-        getAll: () => ({}),
-        setAll: () => ({}),
-      },
-      auth,
+  return createServerClient<Database>(process.env.SUPABASE_URL ?? "", key, {
+    ...rest,
+    cookies: {
+      //@ts-expect-error handle cookies
+      getAll: () => ({}),
+      setAll: () => ({}),
     },
-  );
+    auth,
+    global: {
+      headers: {
+        Autorization: `Bearer ${token}`,
+      },
+    },
+  });
 }

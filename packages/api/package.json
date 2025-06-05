@@ -20,6 +20,7 @@
     "@ai-sdk/google": "^1.2.19",
     "@base/auth": "workspace:^",
     "@base/db": "workspace:^",
+    "@base/supabase": "workspace:^",
     "@orpc/arktype": "^1.4.2",
     "@orpc/client": "^1.4.2",
     "@orpc/openapi": "^1.4.2",
@@ -32,8 +33,6 @@
   },
   "devDependencies": {
     "@base/typescript": "workspace:",
-    "@types/bun": "^1.2.15",
-    "tsc-alias": "^1.8.16",
-    "typescript": "^5.8.3"
+    "tsc-alias": "^1.8.16"
   }
 }

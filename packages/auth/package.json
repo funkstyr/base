@@ -26,7 +26,8 @@
     "@better-auth/expo": "^1.2.8",
     "better-auth": "^1.2.8",
     "dotenv": "^16.5.0",
-    "expo-secure-store": "^14.2.3"
+    "expo-secure-store": "^14.2.3",
+    "jose": "^6.0.11"
   },
   "devDependencies": {
     "@base/typescript": "workspace:",
