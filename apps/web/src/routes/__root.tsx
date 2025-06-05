@@ -1,6 +1,3 @@
-import { createORPCClient } from "@orpc/client";
-import { createORPCReactQueryUtils } from "@orpc/react-query";
-import type { RouterClient } from "@orpc/server";
 import type { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
@@ -10,14 +7,10 @@ import {
   useRouterState,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { useState } from "react";
 
 import "@base/ui/web.css";
-
-import { ORPCContext, link, type orpc } from "@/lib/orpc-client";
-import type { AppRouter } from "@base/api";
-
 import { Layout } from "@/features/layout";
+import type { orpc } from "@/lib/orpc-client";
 import { Loader } from "@base/ui/components/loader";
 import { Toaster } from "@base/ui/components/sonner";
 import { ThemeProvider } from "@base/ui/components/theme-provider";
@@ -49,11 +42,6 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 });
 
 function RootComponent() {
-  const [client] = useState<RouterClient<AppRouter>>(() =>
-    createORPCClient(link),
-  );
-  const [orpc] = useState(() => createORPCReactQueryUtils(client));
-
   const isFetching = useRouterState({
     select: (s) => s.isLoading,
   });
@@ -62,13 +50,11 @@ function RootComponent() {
     <>
       <HeadContent />
 
-      <ORPCContext.Provider value={orpc}>
-        <ThemeProvider defaultTheme="dark" storageKey="ui-theme">
-          <Layout>{isFetching ? <Loader /> : <Outlet />}</Layout>
+      <ThemeProvider defaultTheme="dark" storageKey="ui-theme">
+        <Layout>{isFetching ? <Loader /> : <Outlet />}</Layout>
 
-          <Toaster richColors />
-        </ThemeProvider>
-      </ORPCContext.Provider>
+        <Toaster richColors />
+      </ThemeProvider>
 
       <TanStackRouterDevtools position="bottom-right" />
       <ReactQueryDevtools position="bottom" buttonPosition="bottom-right" />

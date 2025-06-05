@@ -29,6 +29,7 @@
     "@hookform/resolvers": "^5.0.1",
     "@orpc/client": "^1.4.2",
     "@orpc/react-query": "^1.4.2",
+    "@orpc/tanstack-query": "^1.4.2",
     "@orpc/server": "^1.4.2",
     "@tailwindcss/vite": "^4.1.8",
     "@tanstack/react-form": "^1.12.1",
