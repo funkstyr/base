@@ -6,6 +6,10 @@
       "types": "./dist/index.d.ts",
       "default": "./src/index.ts"
     },
+    "./themes": {
+      "types": "./dist/styles/themes.d.ts",
+      "default": "./src/styles/themes.ts"
+    },
     "./*": {
       "types": "./dist/*.d.ts",
       "default": "./src/*.ts"

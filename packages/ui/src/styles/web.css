@@ -1,8 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* @import "./clay.css"; */
 /* @import "./default.css"; */
-@import "./clay.css";
+@import "./nature.css";
 /* @import "./notebook.css"; */
 
 @source "../../../apps/web/**/*.{ts,tsx}";

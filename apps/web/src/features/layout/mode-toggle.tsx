@@ -7,10 +7,31 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@base/ui/components/dropdown-menu";
+import { Separator } from "@base/ui/components/separator";
 import { useTheme } from "@base/ui/components/theme-provider";
+import {
+  type ThemeName,
+  setThemeColorVariables,
+  setThemeMode,
+} from "@base/ui/themes";
+import { useState } from "react";
 
 export function ModeToggle() {
+  const [current, setCurrent] = useState<ThemeName>("clay");
   const { setTheme } = useTheme();
+
+  //TODO: have this visually swap modes
+  //TODO: currently have to swap modes then can see new mode
+  const handleSetMode = (mode: "light" | "dark" | "system") => {
+    setTheme(mode);
+    setThemeMode(mode);
+    setThemeColorVariables(current);
+  };
+
+  const handleSetColor = (name: ThemeName) => {
+    setThemeColorVariables(name);
+    setCurrent(name);
+  };
 
   return (
     <DropdownMenu>
@@ -21,15 +42,36 @@ export function ModeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem onClick={() => handleSetMode("light")}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+
+        <DropdownMenuItem onClick={() => handleSetMode("dark")}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+
+        <DropdownMenuItem onClick={() => handleSetMode("system")}>
           System
+        </DropdownMenuItem>
+
+        <Separator />
+
+        <DropdownMenuItem onClick={() => handleSetColor("clay")}>
+          Clay
+        </DropdownMenuItem>
+
+        <DropdownMenuItem onClick={() => handleSetColor("default")}>
+          Default
+        </DropdownMenuItem>
+
+        <DropdownMenuItem onClick={() => handleSetColor("nature")}>
+          Nature
+        </DropdownMenuItem>
+
+        <DropdownMenuItem onClick={() => handleSetColor("notebook")}>
+          Notebook
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
