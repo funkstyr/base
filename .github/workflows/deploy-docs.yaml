@@ -1,4 +1,4 @@
-name: Deploy - Docs
+name: Docs
 
 on:
   # Trigger the workflow every time you push to the `main` branch
@@ -17,6 +17,7 @@ permissions:
 
 jobs:
   build:
+    name: 🏗 Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -50,6 +51,7 @@ jobs:
 
   deploy:
     needs: build
+    name: 🚀 Ship
     runs-on: ubuntu-latest
     environment:
       name: Docs
