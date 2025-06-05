@@ -3,26 +3,35 @@
   "display": "Base",
   "compilerOptions": {
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "target": "ES2022",
-    "lib": ["ES2022"],
-    "allowJs": true,
     "resolveJsonModule": true,
-    "moduleDetection": "force",
     "isolatedModules": true,
-
     "incremental": true,
     "disableSourceOfProjectReferenceRedirect": true,
     "tsBuildInfoFile": "${configDir}/.cache/tsbuildinfo.json",
+    "checkJs": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "Preserve",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
 
     "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "checkJs": true,
+    "noImplicitOverride": true,
 
-    "module": "Preserve",
-    "moduleResolution": "Bundler",
-    "noEmit": true,
-    "forceConsistentCasingInFileNames": true
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false
   },
   "exclude": ["node_modules", "build", "dist", ".next", ".expo"]
 }

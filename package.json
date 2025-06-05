@@ -31,9 +31,21 @@
     "docker:build": "docker build -f ./apps/server/Dockerfile -t base:dev .",
     "docker:run": ""
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@happy-dom/global-registrator": "^17.6.3",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/bun": "^1.2.15",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.6",
+    "react-test-renderer": "^19.1.0",
     "taze": "^19.1.0",
     "turbo": "^2.5.4"
   },
