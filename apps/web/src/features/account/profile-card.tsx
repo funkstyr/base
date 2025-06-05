@@ -1,3 +1,4 @@
+import { useForm } from "@tanstack/react-form";
 import { type } from "arktype";
 import { Camera, Save } from "lucide-react";
 import { toast } from "sonner";
@@ -22,7 +23,11 @@ import {
 import { Input } from "@base/ui/components/input";
 import { Label } from "@base/ui/components/label";
 import { Separator } from "@base/ui/components/separator";
-import { useForm } from "@tanstack/react-form";
+import { cn } from "@base/ui/lib/utils";
+import { AppleButton } from "../auth/buttons/apple";
+import { DiscordButton } from "../auth/buttons/discord";
+import { GoogleButton } from "../auth/buttons/google";
+import { MicrosoftButton } from "../auth/buttons/microsoft";
 
 export function AccountProfileCard() {
   const { data: session } = auth.useSession();
@@ -98,6 +103,47 @@ export function AccountProfileCard() {
               JPG, GIF or PNG. 1MB max.
             </p>
           </div>
+        </div>
+
+        <Separator className="my-4" />
+
+        <div
+          className={cn(
+            "flex w-full items-center gap-2",
+            "flex-wrap justify-between",
+          )}
+        >
+          <GoogleButton
+            onClick={async () => {
+              await auth.linkSocial({
+                provider: "google",
+              });
+            }}
+          />
+
+          <AppleButton
+            onClick={async () => {
+              await auth.linkSocial({
+                provider: "apple",
+              });
+            }}
+          />
+
+          <MicrosoftButton
+            onClick={async () => {
+              await auth.linkSocial({
+                provider: "microsoft",
+              });
+            }}
+          />
+
+          <DiscordButton
+            onClick={async () => {
+              await auth.linkSocial({
+                provider: "discord",
+              });
+            }}
+          />
         </div>
       </CardHeader>
 

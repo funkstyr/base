@@ -1,7 +1,6 @@
 import { useForm } from "@tanstack/react-form";
 import { useRouter } from "@tanstack/react-router";
 import { type } from "arktype";
-import clsx from "clsx";
 import { toast } from "sonner";
 
 import { auth } from "@base/auth/client/web";
@@ -9,10 +8,13 @@ import { Button } from "@base/ui/components/button";
 import { Input } from "@base/ui/components/input";
 import { Label } from "@base/ui/components/label";
 import { Loader } from "@base/ui/components/loader";
+import { cn } from "@base/ui/lib/utils";
 import { AppleButton } from "./buttons/apple";
 import { DiscordButton } from "./buttons/discord";
 import { GoogleButton } from "./buttons/google";
 import { MicrosoftButton } from "./buttons/microsoft";
+
+const callbackURL = "/todos";
 
 export default function SignInForm({
   onSwitchToSignUp,
@@ -40,7 +42,6 @@ export default function SignInForm({
             router.navigate({
               to: redirectPath ? redirectPath : "/todos",
             });
-            toast.success("Sign in successful");
           },
           onError: (error) => {
             toast.error(error.error.message);
@@ -127,19 +128,51 @@ export default function SignInForm({
             </Button>
           )}
         </form.Subscribe>
-
-        <div
-          className={clsx(
-            "flex w-full items-center gap-2",
-            "flex-wrap justify-between",
-          )}
-        >
-          <GoogleButton />
-          <AppleButton />
-          <MicrosoftButton />
-          <DiscordButton />
-        </div>
       </form>
+
+      <div
+        className={cn(
+          "flex w-full items-center gap-2",
+          "flex-wrap justify-between",
+          "mt-4",
+        )}
+      >
+        <GoogleButton
+          onClick={async () => {
+            await auth.signIn.social({
+              provider: "google",
+              callbackURL,
+            });
+          }}
+        />
+
+        <AppleButton
+          onClick={async () => {
+            await auth.signIn.social({
+              provider: "apple",
+              callbackURL,
+            });
+          }}
+        />
+
+        <MicrosoftButton
+          onClick={async () => {
+            await auth.signIn.social({
+              provider: "microsoft",
+              callbackURL,
+            });
+          }}
+        />
+
+        <DiscordButton
+          onClick={async () => {
+            await auth.signIn.social({
+              provider: "discord",
+              callbackURL,
+            });
+          }}
+        />
+      </div>
 
       <div className="mt-4 text-center">
         <Button

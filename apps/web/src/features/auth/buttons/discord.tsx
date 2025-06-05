@@ -1,18 +1,12 @@
-import { auth } from "@base/auth/client/web";
 import { Button } from "@base/ui/components/button";
 import { cn } from "@base/ui/lib/utils";
 
-export function DiscordButton() {
+export function DiscordButton(props: React.ComponentProps<"button">) {
   return (
     <Button
       variant="outline"
       className={cn("flex-grow")}
-      onClick={async () => {
-        await auth.signIn.social({
-          provider: "discord",
-          callbackURL: "/dashboard",
-        });
-      }}
+      onClick={props.onClick}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
