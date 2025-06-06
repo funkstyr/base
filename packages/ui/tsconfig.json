@@ -1,6 +1,7 @@
 {
   "extends": "@base/typescript/react-package.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
       "@base/ui/*": ["./src/*"]
