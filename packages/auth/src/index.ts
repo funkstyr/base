@@ -16,17 +16,23 @@ import * as schema from "@base/db/schema/auth";
 
 export const auth: ReturnType<typeof betterAuth> = betterAuth({
   trustedOrigins: [process.env.CORS_ORIGIN || "", "base://"],
-
   database: drizzleAdapter(db, {
     provider: "pg",
-
     schema: schema,
   }),
-
+  emailAndPassword: {
+    enabled: true,
+  },
   account: {
     accountLinking: {
       enabled: true,
       trustedProviders: ["google", "apple", "microsoft"],
+    },
+  },
+  socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
     },
   },
   user: {
@@ -42,9 +48,7 @@ export const auth: ReturnType<typeof betterAuth> = betterAuth({
       },
     },
   },
-  emailAndPassword: {
-    enabled: true,
-  },
+
   plugins: [
     admin(),
     customSession(async ({ user, session }) => {
