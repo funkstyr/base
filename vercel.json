@@ -6,10 +6,30 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
 
+  "headers": [
+    {
+      "source": "/(api|rpc)/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://base.gratis"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" }
+      ]
+    }
+  ],
+
   "rewrites": [
     { "source": "/assets/(.*)", "destination": "/assets" },
-    { "source": "/rpc(.*)", "destination": "/index" },
-    { "source": "/api(.*)", "destination": "/index" },
+    { "source": "/(api|rpc)/(.*)", "destination": "/index" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
