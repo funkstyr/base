@@ -4,15 +4,12 @@
   "installCommand": "bun install",
   "buildCommand": "turbo run web#build server#build && cp -r ../web/dist ./",
   "outputDirectory": "dist",
+  "cleanUrls": true,
 
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "main"
-    },
-    {
-      "source": "/rpc/(.*)",
-      "destination": "main"
-    }
+    { "source": "/assets/(.*)", "destination": "/assets" },
+    { "source": "/rpc(.*)", "destination": "/index" },
+    { "source": "/api(.*)", "destination": "/index" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
