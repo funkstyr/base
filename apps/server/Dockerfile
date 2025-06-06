@@ -33,7 +33,7 @@ RUN turbo run web#build server#build
 
 FROM base AS runner
 COPY --from=dist /app/apps/server/dist/server .
-COPY --from=dist /app/apps/web/dist spa
+COPY --from=dist /app/apps/web/dist web
 
 ENV NODE_ENV=production
 EXPOSE 3000

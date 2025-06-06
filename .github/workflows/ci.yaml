@@ -140,6 +140,7 @@ jobs:
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 
+
       # - name: 🐋 Docker Build
       #   run: docker build -f ./apps/server/Dockerfile --build-arg SERVER_URL=${{vars.PROD_SERVER_URL}} --build-arg POSTHOG_KEY=${{vars.PROD_POSTHOG_KEY}} -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} .
 

@@ -25,6 +25,23 @@ app.use(
   }),
 );
 
+app.use(
+  "/",
+  serveStatic({
+    path: "./web/index.html",
+  }),
+);
+
+app.use(
+  "/assets/*",
+  serveStatic({
+    root: "./web",
+    // onNotFound: (path, c) => {
+    //   console.log(`${path} is not found, you access ${c.req.path}`);
+    // },
+  }),
+);
+
 app.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
 app.use("/rpc/*", async (c, next) => rpc.handler("/rpc", c, next));
 
@@ -64,28 +81,5 @@ if (process.env.NODE_ENV !== "production") {
     return c.text(markdown);
   });
 }
-
-// TODO: get these actually working in dockerfile
-app.get(
-  "/assets/*",
-  serveStatic({
-    root:
-      process.env.NODE_ENV === "production"
-        ? "./spa/assets"
-        : "../../web/dist/assets",
-  }),
-);
-
-app.get(
-  "/",
-  serveStatic({
-    root:
-      process.env.NODE_ENV === "production"
-        ? "./spa/index.html"
-        : "../../web/dist/index.html",
-  }),
-);
-
-// app.get("/", (c) => c.html("./spa/index.html"));
 
 export default app;
