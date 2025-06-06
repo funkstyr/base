@@ -1,5 +1,5 @@
+import { cn } from "@base/ui/cn";
 import { Button } from "@base/ui/components/button";
-import { cn } from "@base/ui/lib/utils";
 
 export function MicrosoftButton(props: React.ComponentProps<"button">) {
   return (

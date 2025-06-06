@@ -1,6 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env"],
   "ui": "tui",
+  "envMode": "loose",
   "concurrency": "20",
   "tasks": {
     "build": {
@@ -41,6 +43,12 @@
     },
     "//#lint": {},
     "//#lint:fix": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "//#clean": {
       "cache": false
     }
   }

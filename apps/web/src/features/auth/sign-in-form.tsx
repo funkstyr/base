@@ -6,11 +6,11 @@ import { type } from "arktype";
 import { toast } from "sonner";
 
 import { auth } from "@base/auth/client/web";
+import { cn } from "@base/ui/cn";
 import { Button } from "@base/ui/components/button";
 import { Input } from "@base/ui/components/input";
 import { Label } from "@base/ui/components/label";
 import { Loader } from "@base/ui/components/loader";
-import { cn } from "@base/ui/lib/utils";
 import { AppleButton } from "./buttons/apple";
 import { DiscordButton } from "./buttons/discord";
 import { GoogleButton } from "./buttons/google";

@@ -5,6 +5,7 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { PanelLeftIcon } from "lucide-react";
 import * as React from "react";
 
+import { cn } from "@base/ui/cn";
 import { Button } from "@base/ui/components/button";
 import { Input } from "@base/ui/components/input";
 import { Separator } from "@base/ui/components/separator";
@@ -23,7 +24,6 @@ import {
   TooltipTrigger,
 } from "@base/ui/components/tooltip";
 import { useIsMobile } from "@base/ui/hooks/use-mobile";
-import { cn } from "@base/ui/lib/utils";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;

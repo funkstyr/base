@@ -5,6 +5,7 @@ import { toast } from "sonner";
 
 import { getInitials } from "@base/auth/client/get-initials";
 import { auth } from "@base/auth/client/web";
+import { cn } from "@base/ui/cn";
 import {
   Avatar,
   AvatarFallback,
@@ -23,7 +24,6 @@ import {
 import { Input } from "@base/ui/components/input";
 import { Label } from "@base/ui/components/label";
 import { Separator } from "@base/ui/components/separator";
-import { cn } from "@base/ui/lib/utils";
 import { AppleButton } from "../auth/buttons/apple";
 import { DiscordButton } from "../auth/buttons/discord";
 import { GoogleButton } from "../auth/buttons/google";
