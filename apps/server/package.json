@@ -4,16 +4,17 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
-    "start": "bun run dist/src/index.js",
-    "build": "tsc && tsc-alias",
+    "start": "./dist/server",
+    "_build": "tsc && tsc-alias",
+    "build": "bun build src/index.ts --compile --outfile ./dist/server",
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@base/ai": "workspace:^",
-    "@base/api": "workspace:",
-    "@base/auth": "workspace:",
-    "@base/db": "workspace:",
+    "@base/api": "workspace:^",
+    "@base/auth": "workspace:^",
+    "@base/db": "workspace:^",
     "@scalar/hono-api-reference": "^0.9.3",
     "@scalar/openapi-to-markdown": "^0.2.7",
     "dotenv": "^16.5.0",

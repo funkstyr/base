@@ -32,7 +32,7 @@
     "build:docs": "turbo -F docs build",
     "docker:_": "",
     "docker:build": "docker build -f ./apps/server/Dockerfile -t base:dev .",
-    "docker:run": ""
+    "docker:run": "docker run --env-file ./apps/server/.env -p 3000:3000 base:dev"
   },
   "dependencies": {
     "react": "^19.1.0",
