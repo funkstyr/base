@@ -21,10 +21,10 @@
     "vite": "npm:rolldown-vite@latest"
   },
   "dependencies": {
+    "@base/analytics": "workspace:^",
     "@base/api": "workspace:",
     "@base/auth": "workspace:",
     "@base/db": "workspace:",
-    "@base/posthog": "workspace:",
     "@base/ui": "workspace:",
     "@hookform/resolvers": "^5.0.1",
     "@orpc/client": "^1.4.2",

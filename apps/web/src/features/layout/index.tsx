@@ -1,6 +1,7 @@
 import { SidebarInset, SidebarProvider } from "@base/ui/components/sidebar";
-import { PostHogProvider } from "posthog-js/react";
-// import { PostHogProvider } from "@base/posthog/provider";
+
+import { PostHogProvider } from "@base/analytics/posthog/client";
+import { VercelAnalytics } from "@base/analytics/vercel";
 
 import { AppHeader } from "./app-header";
 import { AppSidebar } from "./app-sidebar";
@@ -11,13 +12,7 @@ interface LayoutProps {
 
 export function Layout(props: LayoutProps) {
   return (
-    <PostHogProvider
-      apiKey={import.meta.env.VITE_POSTHOG_KEY ?? ""}
-      options={{
-        api_host: import.meta.env.VITE_POSTHOG_HOST,
-        defaults: "2025-05-24",
-      }}
-    >
+    <PostHogProvider>
       <SidebarProvider defaultOpen={false}>
         <AppSidebar />
 
@@ -27,6 +22,8 @@ export function Layout(props: LayoutProps) {
           <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
             {props.children}
           </div>
+
+          <VercelAnalytics />
         </SidebarInset>
       </SidebarProvider>
     </PostHogProvider>

@@ -1,5 +1,5 @@
 {
-  "name": "@base/{{ kebabCase name }}",
+  "name": "@base/analytics",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -7,6 +7,14 @@
     "./*": {
       "types": "./dist/*.d.ts",
       "default": "./src/*.ts"
+    },
+    "./posthog/client": {
+      "types": "./dist/posthog/client.d.ts",
+      "default": "./src/posthog/client.tsx"
+    },
+    "./posthog/server": {
+      "types": "./dist/posthog/server.d.ts",
+      "default": "./src/posthog/server.ts"
     }
   },
   "scripts": {
@@ -18,6 +26,9 @@
   "dependencies": {
     "@base/api": "workspace:^",
     "@base/ui": "workspace:^",
+    "@vercel/analytics": "^1.5.0",
+    "posthog-js": "^1.249.4",
+    "posthog-node": "^4.18.0"
   },
   "devDependencies": {
     "@base/typescript": "workspace:^",
