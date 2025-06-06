@@ -32,6 +32,9 @@
     ]
   },
   "settings": {
+    "prettier.enable": false,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "tailwindCSS.experimental.configFile": "packages/ui/styles/web.css",
     "editor.defaultFormatter": "biomejs.biome",
     "editor.rulers": [80],
     "editor.formatOnSave": true,
@@ -59,7 +62,15 @@
       "**/pnpm-lock.yaml": true,
       "**/.gitignore": true,
       "**/*.tsbuildinfo": true,
-      "**/tsbuildinfo.json": true
+      "**/tsbuildinfo.json": true,
+      "**/routeTree.gen.ts": true
+    },
+    "files.watcherExclude": {
+      "**/routeTree.gen.ts": true
+    },
+
+    "files.readonlyInclude": {
+      "**/routeTree.gen.ts": true
     },
     "cSpell.words": ["clsx", "tanstack", "tiptap"],
     "[markdown]": {

@@ -1,0 +1,26 @@
+{
+  "name": "@repo/{{ kebabCase name }}",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc && tsc-alias",
+    "type-check": "tsc --noEmit --emitDeclarationOnly false",
+    "clean": "git clean -xdf .cache .turbo dist node_modules"
+  },
+  "dependencies": {
+    "@base/api": "workspace:^",
+    "@base/ui": "workspace:^",
+  },
+  "devDependencies": {
+    "@base/typescript": "workspace:^",
+    "tsc-alias": "^1.8.16"
+  }
+}
