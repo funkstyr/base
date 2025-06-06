@@ -12,41 +12,40 @@ env:
 
 jobs:
   build:
-      name: 🏗 Build
-      timeout-minutes: 5
-      runs-on: ubuntu-latest
-      # To use Remote Caching, uncomment the next lines and follow the steps below.
-      # env:
-      #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+    name: 🏗 Build
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    # To use Remote Caching, uncomment the next lines and follow the steps below.
+    # env:
+    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+    #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
-      steps:
-        - name: Check out code
-          uses: actions/checkout@v4
-          with:
-            fetch-depth: 2
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
-        - name: Cache turbo build setup
-          uses: actions/cache@v4
-          with:
-            path: .turbo
-            key: ${{ runner.os }}-turbo-${{ github.sha }}
-            restore-keys: |
-              ${{ runner.os }}-turbo-
+      - name: Cache turbo build setup
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
 
-        - uses: oven-sh/setup-bun@v2
+      - uses: oven-sh/setup-bun@v2
 
-        - name: Setup Node.js environment
-          uses: actions/setup-node@v4
-          with:
-            node-version: 22
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-        - name: Install dependencies
-          run: bun install
+      - name: Install dependencies
+        run: bun install
 
-        - name: Build
-          run: bun run build
-
+      - name: Build
+        run: bun run build
 
   check:
     name: 🦺 Check
@@ -132,6 +131,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          # cache-from: type=registry,refs=${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}:main
+          # cache-to: mode=max,image-manifest=true,oci-mediatypes=true,refs=${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}:main
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
@@ -140,10 +141,8 @@ jobs:
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 
-
       # - name: 🐋 Docker Build
       #   run: docker build -f ./apps/server/Dockerfile --build-arg SERVER_URL=${{vars.PROD_SERVER_URL}} --build-arg POSTHOG_KEY=${{vars.PROD_POSTHOG_KEY}} -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} .
 
       # - name: 🐋 Docker Push
       #   run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
