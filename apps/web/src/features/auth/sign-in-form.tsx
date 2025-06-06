@@ -1,3 +1,5 @@
+"use client";
+
 import { useForm } from "@tanstack/react-form";
 import { useRouter } from "@tanstack/react-router";
 import { type } from "arktype";
@@ -14,7 +16,7 @@ import { DiscordButton } from "./buttons/discord";
 import { GoogleButton } from "./buttons/google";
 import { MicrosoftButton } from "./buttons/microsoft";
 
-const callbackURL = "/todos";
+const callbackURL = `${window.origin}/todos`;
 
 export default function SignInForm({
   onSwitchToSignUp,

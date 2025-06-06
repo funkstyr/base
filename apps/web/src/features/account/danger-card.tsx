@@ -26,7 +26,7 @@ import {
 
 export function DangerCard() {
   const handleClick = () => {
-    auth.deleteUser({ callbackURL: "/" });
+    auth.deleteUser({ callbackURL: window.origin });
   };
 
   return (
