@@ -2,6 +2,17 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
   "installCommand": "bun install",
-  "buildCommand": "turbo run web#build server#build",
-  "outputDirectory": "dist"
+  "buildCommand": "turbo run web#build server#build && cp -r ../web/dist ./",
+  "outputDirectory": "dist",
+
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "main"
+    },
+    {
+      "source": "/rpc/(.*)",
+      "destination": "main"
+    }
+  ]
 }

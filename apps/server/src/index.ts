@@ -28,14 +28,14 @@ app.use(
 app.use(
   "/",
   serveStatic({
-    path: "./web/index.html",
+    path: "./index.html",
   }),
 );
 
 app.use(
   "/assets/*",
   serveStatic({
-    root: "./web",
+    root: "./",
     // onNotFound: (path, c) => {
     //   console.log(`${path} is not found, you access ${c.req.path}`);
     // },

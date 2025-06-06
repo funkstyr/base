@@ -28,13 +28,13 @@ ENV VITE_POSTHOG_KEY=$POSTHOG_KEY
 ENV VITE_POSTHOG_HOST=$POSTHOG_HOST
 
 COPY --from=builder /app/out/full/ .
-RUN turbo run web#build server#build
+RUN turbo run web#build server#compile
 
 
 FROM base AS runner
-COPY --from=dist /app/apps/server/dist/server .
-COPY --from=dist /app/apps/web/dist web
+COPY --from=dist /app/apps/server/dist/main .
+COPY --from=dist /app/apps/web/dist .
 
 ENV NODE_ENV=production
 EXPOSE 3000
-CMD ["./server"]
+CMD ["./main"]

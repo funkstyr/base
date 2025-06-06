@@ -8,8 +8,10 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"]
     },
-    "type-check": {
-      "dependsOn": ["^type-check"]
+    "compile": {
+      "dependsOn": ["^compile"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**"]
     },
     "dev": {
       "cache": false,
@@ -30,6 +32,9 @@
     "db:generate": {
       "cache": false,
       "persistent": true
+    },
+    "type-check": {
+      "dependsOn": ["^type-check"]
     },
     "lint": {
       "dependsOn": ["^lint"]
