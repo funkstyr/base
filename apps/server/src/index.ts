@@ -65,11 +65,27 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
+// TODO: get these actually working in dockerfile
 app.get(
-  "*",
+  "/assets/*",
   serveStatic({
-    root: process.env.NODE_ENV === "production" ? "./spa" : "../../web/dist",
+    root:
+      process.env.NODE_ENV === "production"
+        ? "./spa/assets"
+        : "../../web/dist/assets",
   }),
 );
+
+app.get(
+  "/",
+  serveStatic({
+    root:
+      process.env.NODE_ENV === "production"
+        ? "./spa/index.html"
+        : "../../web/dist/index.html",
+  }),
+);
+
+// app.get("/", (c) => c.html("./spa/index.html"));
 
 export default app;
