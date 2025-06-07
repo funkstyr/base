@@ -29,10 +29,22 @@ description: List of outstanding tasks
    4. super stretch: emails
       1. verification
       2. reset password
-4. look into using `tanstack/start`
+4. rooms
+   1. add schema for rooms + messages
+   2. page that can create new room
+      1. list available rooms to join too
+   3. create route for room by id (`/room/:id`)
+      1. both orpc + web app
+      2. right side panel that will display the list of messages
+      3. input + button to add new message
+      4. react/reply to message?
+   4. spike: better-auth anonymous plugin
+5. look into using `tanstack/start`
    1. this would allow no env variables at build time
    2. create global fetcher to inject env variables into window/hydrate on load
-5. swap `arktype` to `zod@^4`
+6. something else
+7. swap `arktype` to `zod@^4`
    1. on hold, still using arktype
    2. some libraries are nice and export zod schemas
+   
 
