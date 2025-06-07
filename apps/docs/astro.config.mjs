@@ -11,6 +11,11 @@ export default defineConfig({
       title: "Base Docs",
       social: [
         {
+          icon: "vercel",
+          label: "Site",
+          href: "https://base.gratis",
+        },
+        {
           icon: "github",
           label: "GitHub",
           href: "https://github.com/funkstyr/base",

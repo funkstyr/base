@@ -26,25 +26,29 @@ description: Quick links and commands for local environment.
 
 <br/>
 
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+
 1. [Get](https://aistudio.google.com/app/u/1/apikey) gemini api key and paste in `apps/server/.env`
 
-> Clone and install deps
+2. Clone and install deps
 
-```bash
-git clone https://github.com/funkstyr/base.git
-cd base
-bun i
-```
+   ```bash
+   git clone https://github.com/funkstyr/base.git
+   cd base
+   bun i
+   ```
 
-<br/>
-<br/>
+3. Postgres(`Hosted:` [setup](/docs/hosting/#supabase))
 
-> Postgres(local); Hosted: [setup](/docs/hosting/#supabase) supabase project and get connection string
+   ```bash
+   cd tools/postgres && bun _dev
+   cd packages/db && bun db:push
+   ```
 
-```bash
-cd tools/postgres && bun _dev
-cd packages/db && bun db:push
-```
+</Steps>
+
 
 ## Tech
 
