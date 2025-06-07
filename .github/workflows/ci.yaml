@@ -11,16 +11,6 @@ env:
   IMAGE_NAME: ${{ github.repository }}-server
 
 jobs:
-
-  uses: dorny/paths-filter@v3
-  id: changes
-  with:
-    filters: |
-      src:
-        - 'apps/server/**'
-        - 'apps/web/**'
-        - 'packages/**'
-
   build:
     name: 🏗 Build
     timeout-minutes: 5
@@ -106,7 +96,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: ["build", "check"]
     # TODO: dont have a release system, dont want to spam containers
-    if: github.ref == 'refs/heads/main' && steps.changes.outputs.src == 'true'
+    if: github.ref == 'refs/heads/main'
 
     permissions:
       contents: read
@@ -118,20 +108,32 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'apps/server/**'
+              - 'apps/web/**'
+              - 'packages/**'
+
       - name: 🐋 Docker Login
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        if: steps.changes.outputs.src == 'true'
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🐋 Docker Metadata
+        if: steps.changes.outputs.src == 'true'
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
 
       - name: 🐋 Docker Build and push
+        if: steps.changes.outputs.src == 'true'
         id: push
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
@@ -147,6 +149,7 @@ jobs:
           # cache-to: mode=max,image-manifest=true,oci-mediatypes=true,refs=${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}:main
 
       - name: Generate artifact attestation
+        if: steps.changes.outputs.src == 'true'
         uses: actions/attest-build-provenance@v2
         with:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
