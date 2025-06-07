@@ -97,10 +97,11 @@
       "version": "0.0.0",
       "dependencies": {
         "@base/analytics": "workspace:^",
-        "@base/api": "workspace:",
-        "@base/auth": "workspace:",
-        "@base/db": "workspace:",
-        "@base/ui": "workspace:",
+        "@base/api": "workspace:^",
+        "@base/auth": "workspace:^",
+        "@base/db": "workspace:^",
+        "@base/seo": "workspace:^",
+        "@base/ui": "workspace:^",
         "@hookform/resolvers": "^5.0.1",
         "@orpc/client": "^1.4.2",
         "@orpc/react-query": "^1.4.2",
@@ -239,6 +240,17 @@
         "drizzle-kit": "^0.31.1",
         "tsc-alias": "^1.8.16",
         "typescript": "^5.8.3",
+      },
+    },
+    "packages/seo": {
+      "name": "@base/seo",
+      "version": "0.0.0",
+      "dependencies": {
+        "schema-dts": "^1.1.5",
+      },
+      "devDependencies": {
+        "@base/typescript": "workspace:^",
+        "tsc-alias": "^1.8.16",
       },
     },
     "packages/supabase": {
@@ -621,6 +633,8 @@
     "@base/db": ["@base/db@workspace:packages/db"],
 
     "@base/pg": ["@base/pg@workspace:tools/postgres"],
+
+    "@base/seo": ["@base/seo@workspace:packages/seo"],
 
     "@base/supabase": ["@base/supabase@workspace:packages/supabase"],
 
@@ -3625,6 +3639,8 @@
     "sax": ["sax@1.4.1", "", {}, "sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg=="],
 
     "scheduler": ["scheduler@0.26.0", "", {}, "sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA=="],
+
+    "schema-dts": ["schema-dts@1.1.5", "", {}, "sha512-RJr9EaCmsLzBX2NDiO5Z3ux2BVosNZN5jo0gWgsyKvxKIUL5R3swNvoorulAeL9kLB0iTSX7V6aokhla2m7xbg=="],
 
     "schema-utils": ["schema-utils@4.3.2", "", { "dependencies": { "@types/json-schema": "^7.0.9", "ajv": "^8.9.0", "ajv-formats": "^2.1.1", "ajv-keywords": "^5.1.0" } }, "sha512-Gn/JaSk/Mt9gYubxTtSn/QCV4em9mpAPiR1rqy/Ocu19u/G9J5WWdNoUT4SiV6mFC3y6cxyFcFwdzPM3FgxGAQ=="],
 

@@ -8,9 +8,10 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import "@base/ui/web.css";
+import "@base/ui/web.css?url";
 import { Layout } from "@/features/layout";
 import type { orpc } from "@/lib/orpc-client";
+import { seo } from "@base/seo";
 import { Loader } from "@base/ui/components/loader";
 import { Toaster } from "@base/ui/components/sonner";
 import { ThemeProvider } from "@base/ui/components/theme-provider";
@@ -23,15 +24,11 @@ export interface RouterAppContext {
 export const Route = createRootRouteWithContext<RouterAppContext>()({
   component: RootComponent,
   head: () => ({
-    meta: [
-      {
-        title: "Base",
-      },
-      {
-        name: "description",
-        content: "A simple web application",
-      },
-    ],
+    meta: seo({
+      title: "Base",
+      description: "Simple online games",
+      keywords: "base games social",
+    }),
     links: [
       {
         rel: "icon",

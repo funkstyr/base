@@ -1,0 +1,12 @@
+{
+  "extends": "@base/typescript/internal-package.json",
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@base/seo/*": ["./src/*"]
+    }
+  }
+}
