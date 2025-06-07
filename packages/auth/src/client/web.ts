@@ -9,7 +9,7 @@ import { createAuthClient } from "better-auth/react";
 import type { auth as authClient } from "@base/auth";
 
 export const auth = createAuthClient({
-  baseURL: import.meta.env.VITE_SERVER_URL,
+  baseURL: import.meta.env.VITE_SERVER_URL ?? "",
   plugins: [
     adminClient(),
     customSessionClient<typeof authClient>(),

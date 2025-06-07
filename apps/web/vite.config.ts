@@ -21,4 +21,23 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        configure: (_proxy, _options) => {
+          // proxy will be an instance of 'http-proxy'
+        },
+      },
+      "/rpc": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        configure: (_proxy, _options) => {
+          // proxy will be an instance of 'http-proxy'
+        },
+      },
+    },
+  },
 });
