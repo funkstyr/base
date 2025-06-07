@@ -7,9 +7,8 @@
   "cleanUrls": true,
 
   "rewrites": [
-    { "source": "/(api|rpc)/(.*)", "destination": "/src" },
+    { "source": "/(api|rpc)/(.*)", "destination": "/edge" },
     { "source": "/assets/(.*)", "destination": "/assets" },
-    { "source": "/(.*)\\.(.*)", "destination": "/" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

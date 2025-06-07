@@ -6,7 +6,6 @@ import { serveStatic } from "hono/bun";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import { stream } from "hono/streaming";
-import { handle } from "hono/vercel";
 
 import { streamTextHandler } from "@base/ai/stream-text";
 import { openApiSpec } from "@base/api/open-api";
@@ -88,15 +87,4 @@ app.use(
   }),
 );
 
-export const runetime = "edge";
-const handler = handle(app);
-export const GET = handler;
-export const POST = handler;
-export const PUT = handler;
-export const PATCH = handler;
-export const DELETE = handler;
-export const HEAD = handler;
-export const OPTIONS = handler;
-
-const server = process.env.VERCEL === "1" ? handler : app;
-export default server;
+export default app;
