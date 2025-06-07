@@ -1,10 +1,19 @@
 import { RPCHandler } from "@orpc/server/fetch";
+import { CORSPlugin } from "@orpc/server/plugins";
 import type { Context, Next } from "hono";
 
 import { appRouter } from ".";
 import { createContext } from "./context";
 
-const handler = new RPCHandler(appRouter);
+const handler = new RPCHandler(appRouter, {
+  plugins: [
+    new CORSPlugin({
+      origin: (origin, _options) => origin,
+      allowMethods: ["GET", "HEAD", "PUT", "POST", "DELETE", "PATCH"],
+      // ...
+    }),
+  ],
+});
 
 export const rpc = {
   handler: async (prefix: `/${string}`, c: Context, next: Next) => {
