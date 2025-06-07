@@ -18,7 +18,8 @@
     "babel-plugin-react-compiler": "^19.1.0-rc.2",
     "postcss": "^8.5.4",
     "tailwindcss": "^4.1.8",
-    "vite": "npm:rolldown-vite@latest"
+    "vite": "npm:rolldown-vite@latest",
+    "vite-plugin-pwa": "^1.0.0"
   },
   "dependencies": {
     "@base/analytics": "workspace:^",

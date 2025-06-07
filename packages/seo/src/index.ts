@@ -13,6 +13,7 @@ export const seo = ({
     { title },
     { name: "description", content: description },
     { name: "keywords", content: keywords },
+    { name: "theme-color", content: "#4caf50" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
     { name: "twitter:creator", content: "@funkstyr" },
