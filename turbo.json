@@ -56,17 +56,20 @@
     "tags": {
       "*": {
         "dependencies": {
-          "deny": ["built"]
+          "deny": ["built"],
+          "allow": ["*"]
         }
       },
       "api": {
         "dependencies": {
-          "deny": ["data", "ui"]
+          "deny": ["data", "ui"],
+          "allow": ["api"]
         }
       },
       "db": {
         "dependencies": {
-          "deny": ["api", "data", "ui"]
+          "deny": ["api", "data", "ui"],
+          "allow": ["db"]
         }
       },
       "data": {
