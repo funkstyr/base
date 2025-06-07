@@ -25,23 +25,6 @@ app.use(
   }),
 );
 
-app.use(
-  "/",
-  serveStatic({
-    path: "./index.html",
-  }),
-);
-
-app.use(
-  "/assets/*",
-  serveStatic({
-    root: "./",
-    // onNotFound: (path, c) => {
-    //   console.log(`${path} is not found, you access ${c.req.path}`);
-    // },
-  }),
-);
-
 app.on(["POST", "GET"], "/api/auth/**", (c) => auth.handler(c.req.raw));
 app.use("/rpc/*", async (c, next) => rpc.handler("/rpc", c, next));
 
@@ -81,5 +64,22 @@ if (process.env.NODE_ENV !== "production") {
     return c.text(markdown);
   });
 }
+
+app.use(
+  "/assets/*",
+  serveStatic({
+    root: "./",
+    // onNotFound: (path, c) => {
+    //   console.log(`${path} is not found, you access ${c.req.path}`);
+    // },
+  }),
+);
+
+app.use(
+  "*",
+  serveStatic({
+    path: "./index.html",
+  }),
+);
 
 export default app;
