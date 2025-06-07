@@ -34,6 +34,11 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
       {
         type: "add",
+        path: "packages/{{ kebabCase name }}/turbo.json",
+        templateFile: "templates/init-pkg/turbo.json.hbs",
+      },
+      {
+        type: "add",
         path: "packages/{{ kebabCase name }}/src/index.ts",
         templateFile: "templates/init-pkg/index.ts.hbs",
       },

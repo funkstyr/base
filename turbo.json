@@ -51,5 +51,30 @@
     "//#clean": {
       "cache": false
     }
+  },
+  "boundaries": {
+    "tags": {
+      "*": {
+        "dependencies": {
+          "deny": ["built"]
+        }
+      },
+      "api": {
+        "dependencies": {
+          "deny": ["data", "ui"]
+        }
+      },
+      "db": {
+        "dependencies": {
+          "deny": ["api", "data", "ui"]
+        }
+      },
+      "data": {
+        "dependencies": {
+          "deny": ["ui"],
+          "allow": ["api", "data"]
+        }
+      }
+    }
   }
 }
