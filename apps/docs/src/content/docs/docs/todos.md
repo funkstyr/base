@@ -48,6 +48,8 @@ description: List of outstanding tasks
       3. input + button to add new message
       4. react/reply to message?
    4. spike: better-auth anonymous plugin
+   5. spike: play and learn game servers - https://rivet.gg/docs/solutions/game-servers
+      1. ws vs sse
 6. spike: external api source:
    1. [weather.gov](https://www.weather.gov/documentation/services-web-api)
    2. [food](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/api/ref/api-v3.yaml)

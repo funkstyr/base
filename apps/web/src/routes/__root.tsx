@@ -42,7 +42,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
       },
       {
         rel: "icon",
-        href: "/favicon.ico",
+        href: "https://fav.farm/%F0%9F%9F%A9",
       },
     ],
   }),
