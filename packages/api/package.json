@@ -12,9 +12,9 @@
     }
   },
   "scripts": {
-    "dev": "tsc --watch",
+    "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsgo --noEmit"
   },
   "dependencies": {
     "@ai-sdk/google": "^1.2.19",

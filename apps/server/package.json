@@ -7,7 +7,7 @@
     "start": "./dist/main",
     "build": "tsc && tsc-alias",
     "compile": "bun build --compile --minify ./src/index.ts --outfile ./dist/main",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsgo --noEmit"
   },
   "dependencies": {
     "@base/ai": "workspace:^",

@@ -24,9 +24,9 @@
     }
   },
   "scripts": {
-    "dev": "tsc --watch",
+    "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsgo --noEmit",
     "generate": "supabase gen types --lang=typescript --project-id udnoswntjyuwysnpetel --schema public > src/types/db.generated.ts"
   },
   "dependencies": {

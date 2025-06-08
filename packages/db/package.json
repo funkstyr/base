@@ -20,9 +20,9 @@
     }
   },
   "scripts": {
-    "dev": "tsc --watch",
+    "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsgo --noEmit",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",

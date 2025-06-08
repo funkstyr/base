@@ -28,11 +28,11 @@
       "ms-playwright.playwright",
       "vitest.explorer",
       "bradlc.vscode-tailwindcss",
-      "coderabbit.coderabbit-vscode"
+      "typescriptteam.native-preview"
     ]
   },
   "settings": {
-    "prettier.enable": false,
+    "typescript.experimental.useTsgo": true,
     "typescript.tsdk": "node_modules/typescript/lib",
     "tailwindCSS.experimental.configFile": "packages/ui/styles/web.css",
     "editor.defaultFormatter": "biomejs.biome",

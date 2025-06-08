@@ -35,9 +35,9 @@
   },
   "scripts": {
     "add": "npx shadcn@latest add",
-    "dev": "tsc --watch",
+    "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsgo --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.0",
