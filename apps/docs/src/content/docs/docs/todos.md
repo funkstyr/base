@@ -15,6 +15,7 @@ description: List of outstanding tasks
    1. get unit testing working for ui components
    2. add changesets
       1. only bump for web or server app + packages
+      2. only build docker when release
    3. spike: use sst/pulumi to push to a k8s cluster(aws/gc/local)
       1. create temp env + teardown
 3. account
@@ -51,13 +52,14 @@ description: List of outstanding tasks
    5. spike: play and learn game servers - https://rivet.gg/docs/solutions/game-servers
       1. ws vs sse
 6. spike: external api source:
-   1. [weather.gov](https://www.weather.gov/documentation/services-web-api)
-   2. [food](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/api/ref/api-v3.yaml)
-   3. [open library](https://openlibrary.org/swagger/docs)
-   4. [econ census](https://api.census.gov/data/2022/ecnbasic)
+   1. [hey-api](https://heyapi.dev/) vs [openapi-ts](https://openapi-ts.dev/)
+   2. [weather.gov](https://www.weather.gov/documentation/services-web-api)
+   3. [food](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/api/ref/api-v3.yaml)
+   4. [open library](https://openlibrary.org/swagger/docs)
+   5. [econ census](https://api.census.gov/data/2022/ecnbasic)
       1. others: https://www.census.gov/data/developers/data-sets.html
       2. https://data.gov/
-   5. 
+   6. 
 7. spike: look into using `tanstack/start`
    1. this would allow no env variables at build time
    2. create global fetcher to inject env variables into window/hydrate on load
