@@ -23,8 +23,8 @@
   },
   "dependencies": {
     "@base/db": "workspace:^",
-    "@better-auth/expo": "^1.2.8",
-    "better-auth": "^1.2.8",
+    "@better-auth/expo": "^1.2.9",
+    "better-auth": "^1.2.9",
     "dotenv": "^16.5.0",
     "expo-secure-store": "^14.2.3",
     "jose": "^6.0.11"
