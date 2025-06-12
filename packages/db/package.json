@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@base/typescript": "workspace:",
-    "@types/bun": "^1.2.15",
+    "@types/bun": "^1.2.16",
     "@types/pg": "^8.15.4",
     "drizzle-kit": "^0.31.1",
     "tsc-alias": "^1.8.16",

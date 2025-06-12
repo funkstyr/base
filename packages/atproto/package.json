@@ -21,8 +21,8 @@
     "@atproto/common": "^0.4.11",
     "@atproto/identity": "^0.4.8",
     "@atproto/lexicon": "^0.4.11",
-    "@atproto/oauth-client-node": "^0.2.22",
-    "@atproto/sync": "^0.1.24",
+    "@atproto/oauth-client-node": "^0.2.23",
+    "@atproto/sync": "^0.1.25",
     "@atproto/syntax": "^0.3.4",
     "@atproto/xrpc-server": "^0.7.19",
     "arktype": "^2.1.20",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@atproto/lex-cli": "^0.4.1",
     "@base/typescript": "workspace:",
-    "@types/bun": "^1.2.15",
+    "@types/bun": "^1.2.16",
     "tsc-alias": "^1.8.16",
     "typescript": "^5.8.3"
   }
