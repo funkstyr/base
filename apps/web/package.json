@@ -13,7 +13,7 @@
   "devDependencies": {
     "@tanstack/react-query-devtools": "^5.80.7",
     "@tanstack/react-router-devtools": "^1.121.5",
-    "@tanstack/router-plugin": "^1.121.4",
+    "@tanstack/router-plugin": "^1.121.7",
     "@vitejs/plugin-react": "^4.5.2",
     "babel-plugin-react-compiler": "^19.1.0-rc.2",
     "postcss": "^8.5.5",
@@ -34,13 +34,13 @@
     "@orpc/server": "^1.5.0",
     "@orpc/tanstack-query": "^1.5.0",
     "@tailwindcss/vite": "^4.1.10",
-    "@tanstack/react-form": "^1.12.2",
+    "@tanstack/react-form": "^1.12.3",
     "@tanstack/react-query": "^5.80.7",
     "@tanstack/react-router": "^1.121.2",
     "arktype": "^2.1.20",
     "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",
-    "posthog-js": "^1.250.2",
+    "posthog-js": "^1.252.0",
     "sonner": "^2.0.5"
   }
 }
