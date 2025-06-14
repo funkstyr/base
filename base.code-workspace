@@ -2,20 +2,20 @@
   "folders": [
     {
       "name": "root",
-      "path": ".",
+      "path": "."
     },
     {
       "name": "apps",
-      "path": "apps",
+      "path": "apps"
     },
     {
       "name": "packages",
-      "path": "packages",
+      "path": "packages"
     },
     {
       "name": "tools",
-      "path": "tools",
-    },
+      "path": "tools"
+    }
   ],
   "extensions": {
     "recommendations": [
@@ -28,8 +28,8 @@
       "ms-playwright.playwright",
       "vitest.explorer",
       "bradlc.vscode-tailwindcss",
-      "typescriptteam.native-preview",
-    ],
+      "typescriptteam.native-preview"
+    ]
   },
   "settings": {
     "typescript.experimental.useTsgo": false,
@@ -42,7 +42,7 @@
       "source.organizeImports": "never",
       "source.addMissingImports": "explicit",
       "source.fixAll.eslint": "explicit",
-      "source.fixAll": "explicit",
+      "source.fixAll": "explicit"
     },
     "npm.packageManager": "bun",
 
@@ -63,18 +63,18 @@
       "**/.gitignore": true,
       "**/*.tsbuildinfo": true,
       "**/tsbuildinfo.json": true,
-      "**/routeTree.gen.ts": true,
+      "**/routeTree.gen.ts": true
     },
     "files.watcherExclude": {
-      "**/routeTree.gen.ts": true,
+      "**/routeTree.gen.ts": true
     },
 
     "files.readonlyInclude": {
-      "**/routeTree.gen.ts": true,
+      "**/routeTree.gen.ts": true
     },
     "cSpell.words": ["clsx", "tanstack", "tiptap"],
     "[markdown]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-    },
-  },
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  }
 }
