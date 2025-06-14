@@ -37,7 +37,7 @@
     "add": "npx shadcn@latest add",
     "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsgo --noEmit"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

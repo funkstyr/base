@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsgo --noEmit",
+    "type-check": "tsc --noEmit",
     "generate": "supabase gen types --lang=typescript --project-id udnoswntjyuwysnpetel --schema public > src/types/db.generated.ts"
   },
   "dependencies": {

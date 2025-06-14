@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsgo --noEmit --emitDeclarationOnly false",
+    "type-check": "tsc --noEmit --emitDeclarationOnly false",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {

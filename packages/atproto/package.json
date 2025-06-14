@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsgo --noEmit"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@atproto/api": "^0.13.35",

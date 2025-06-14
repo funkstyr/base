@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "tsgo --watch",
     "build": "tsc && tsc-alias",
-    "type-check": "tsgo --noEmit",
+    "type-check": "tsc --noEmit",
     "generate": "bun x @better-auth/cli generate --config src/index.ts"
   },
   "dependencies": {
