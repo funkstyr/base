@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "relatedProjects": ["prj_N8jxhhZsEjA4gbkiN4Zhz525fxHh"],
   "framework": "vite",
   "installCommand": "bun install",
   "buildCommand": "turbo run web#build",
