@@ -3,6 +3,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { BadgeCheck, Bell, ChevronsUpDown, LogIn, LogOut } from "lucide-react";
 
+import { orpc } from "@/lib/orpc-client";
 import { getInitials } from "@base/auth/client/get-initials";
 import { auth } from "@base/auth/client/web";
 import { Avatar, AvatarFallback } from "@base/ui/components/avatar";
@@ -21,6 +22,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@base/ui/components/sidebar";
+import { useQuery } from "@tanstack/react-query";
 
 export function NavUser() {
   const navigate = useNavigate();
@@ -28,6 +30,8 @@ export function NavUser() {
 
   const { data: session } = auth.useSession();
   const initials = getInitials(session);
+
+  const { data } = useQuery(orpc.health.queryOptions());
 
   const handleLogout = () => {
     auth.signOut({
@@ -41,6 +45,7 @@ export function NavUser() {
     });
   };
 
+  if (!data) return;
   if (!session)
     return (
       <SidebarMenu>
