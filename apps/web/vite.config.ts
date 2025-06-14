@@ -7,6 +7,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
   appType: "spa",
+  publicDir: "public",
   plugins: [
     tailwindcss(),
     TanStackRouterVite({
