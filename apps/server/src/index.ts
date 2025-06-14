@@ -12,7 +12,7 @@ import { openApiSpec } from "@base/api/open-api";
 import { rpc } from "@base/api/rpc";
 import { auth } from "@base/auth";
 
-const app = new Hono().basePath("/");
+const app = new Hono().basePath("/api");
 
 app.use(logger());
 app.use(
@@ -71,7 +71,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.use(
-  "/assets/*",
+  "public/assets/*",
   serveStatic({
     root: "./",
     // onNotFound: (path, c) => {
@@ -83,7 +83,7 @@ app.use(
 app.use(
   "*",
   serveStatic({
-    path: "./index.html",
+    path: "public/index.html",
   }),
 );
 

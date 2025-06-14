@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "bun install",
+  "buildCommand": "turbo run web#build server#build && cp -r ../web/dist ./public",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+
+  "rewrites": [
+    { "source": "/(api|rpc)/(.*)", "destination": "/api" },
+    { "source": "/assets/(.*)", "destination": "/public/assets" },
+    { "source": "/(.*)", "destination": "/public" }
+  ]
+}

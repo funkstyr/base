@@ -1,7 +1,6 @@
 import { handle } from "hono/vercel";
 
-// @ts-expect-error it's built
-import app from "../dist/src/index.js";
+import app from "../src/index.js";
 
 export const runetime = "edge";
 

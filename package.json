@@ -28,7 +28,7 @@
     "db:generate": "turbo -F server db:generate",
     "db:migrate": "turbo -F server db:migrate",
     "build:_": "",
-    "build": "turbo run build --affected",
+    "build": "turbo run build",
     "build:web": "turbo -F web build",
     "build:server": "turbo -F server build",
     "build:docs": "turbo -F docs build",
