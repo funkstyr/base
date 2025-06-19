@@ -23,7 +23,7 @@
     "ai": "^4.3.16",
     "arktype": "^2.1.20",
     "dotenv": "^16.5.0",
-    "hono": "^4.7.11"
+    "hono": "^4.8.0"
   },
   "devDependencies": {
     "@base/typescript": "workspace:",

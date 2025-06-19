@@ -11,12 +11,12 @@
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {
-    "@tanstack/react-query-devtools": "^5.80.7",
-    "@tanstack/react-router-devtools": "^1.121.12",
-    "@tanstack/router-plugin": "^1.121.12",
+    "@tanstack/react-query-devtools": "^5.80.10",
+    "@tanstack/react-router-devtools": "^1.121.27",
+    "@tanstack/router-plugin": "^1.121.27",
     "@vitejs/plugin-react": "^4.5.2",
     "babel-plugin-react-compiler": "^19.1.0-rc.2",
-    "postcss": "^8.5.5",
+    "postcss": "^8.5.6",
     "tailwindcss": "^4.1.10",
     "vite": "npm:rolldown-vite@latest",
     "vite-plugin-pwa": "^1.0.0"
@@ -29,18 +29,18 @@
     "@base/seo": "workspace:^",
     "@base/ui": "workspace:^",
     "@hookform/resolvers": "^5.1.1",
-    "@orpc/client": "^1.5.1",
-    "@orpc/react-query": "^1.5.1",
-    "@orpc/server": "^1.5.1",
-    "@orpc/tanstack-query": "^1.5.1",
+    "@orpc/client": "^1.5.2",
+    "@orpc/react-query": "^1.5.2",
+    "@orpc/server": "^1.5.2",
+    "@orpc/tanstack-query": "^1.5.2",
     "@tailwindcss/vite": "^4.1.10",
     "@tanstack/react-form": "^1.12.3",
-    "@tanstack/react-query": "^5.80.7",
-    "@tanstack/react-router": "^1.121.12",
+    "@tanstack/react-query": "^5.80.10",
+    "@tanstack/react-router": "^1.121.27",
     "arktype": "^2.1.20",
     "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",
-    "posthog-js": "^1.252.0",
+    "posthog-js": "^1.255.0",
     "sonner": "^2.0.5"
   }
 }

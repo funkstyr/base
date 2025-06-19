@@ -22,11 +22,11 @@
     "@atproto/identity": "^0.4.8",
     "@atproto/lexicon": "^0.4.11",
     "@atproto/oauth-client-node": "^0.2.24",
-    "@atproto/sync": "^0.1.25",
+    "@atproto/sync": "^0.1.26",
     "@atproto/syntax": "^0.3.4",
     "@atproto/xrpc-server": "^0.7.19",
     "arktype": "^2.1.20",
-    "hono": "^4.7.11"
+    "hono": "^4.8.0"
   },
   "devDependencies": {
     "@atproto/lex-cli": "^0.4.1",
