@@ -1,4 +1,3 @@
-import { Container } from "@/components/container";
 import { useChat } from "@ai-sdk/react";
 import { Ionicons } from "@expo/vector-icons";
 import { fetch as expoFetch } from "expo/fetch";
@@ -12,6 +11,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+
+import { Container } from "@/components/container";
 
 // Utility function to generate API URLs
 const generateAPIUrl = (relativePath: string) => {
@@ -36,6 +37,7 @@ export default function AIScreen() {
 
   const scrollViewRef = useRef<ScrollView>(null);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: scroll when messages change
   useEffect(() => {
     scrollViewRef.current?.scrollToEnd({ animated: true });
   }, [messages]);

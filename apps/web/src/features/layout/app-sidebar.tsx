@@ -1,5 +1,6 @@
 "use client";
 
+import { Link } from "@tanstack/react-router";
 import { Dices, SquareTerminal } from "lucide-react";
 import type * as React from "react";
 
@@ -13,7 +14,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@base/ui/components/sidebar";
-import { Link } from "@tanstack/react-router";
 import { NavMain } from "./nav-main";
 import { NavSecondary } from "./nav-secondary";
 import { NavStatus } from "./nav-status";

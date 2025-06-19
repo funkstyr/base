@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 
+import { auth } from "@base/auth/client/web";
 import { beforeLoad } from "@/features/auth/protected-route";
 import { orpc } from "@/lib/orpc-client";
-import { auth } from "@base/auth/client/web";
 
 export const Route = createFileRoute("/dashboard")({
   component: RouteComponent,
@@ -16,14 +16,13 @@ function RouteComponent() {
   const { data: session, isPending } = auth.useSession();
   const privateData = useQuery(orpc.privateData.queryOptions());
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (!session && !isPending) {
       navigate({
         to: "/login",
       });
     }
-  }, [session, isPending]);
+  }, [session, isPending, navigate]);
 
   if (isPending) {
     return <div>Loading...</div>;

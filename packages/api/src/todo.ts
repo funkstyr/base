@@ -1,3 +1,4 @@
+import { type } from "arktype";
 import { eq } from "drizzle-orm";
 
 import { db } from "@base/db/client";
@@ -8,8 +9,6 @@ import {
   todoSelectSchema,
   todoUpdateSchema,
 } from "@base/db/schema/todo";
-
-import { type } from "arktype";
 import { publicProcedure } from "./orpc";
 
 export const todoRouter = {

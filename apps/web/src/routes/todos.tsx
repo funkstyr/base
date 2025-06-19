@@ -3,8 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Loader2, Trash2 } from "lucide-react";
 import { useState } from "react";
 
-import { beforeLoad } from "@/features/auth/protected-route";
-import { orpc } from "@/lib/orpc-client";
 import type { TodoUpdateSchema } from "@base/db/schema/todo";
 import { Button } from "@base/ui/components/button";
 import {
@@ -16,6 +14,8 @@ import {
 } from "@base/ui/components/card";
 import { Checkbox } from "@base/ui/components/checkbox";
 import { Input } from "@base/ui/components/input";
+import { beforeLoad } from "@/features/auth/protected-route";
+import { orpc } from "@/lib/orpc-client";
 
 export const Route = createFileRoute("/todos")({
   component: TodosRoute,

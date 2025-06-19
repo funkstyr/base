@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Send } from "lucide-react";
 import { useEffect, useRef } from "react";
 
-import { beforeLoad } from "@/features/auth/protected-route";
 import { Button } from "@base/ui/components/button";
 import { Input } from "@base/ui/components/input";
+import { beforeLoad } from "@/features/auth/protected-route";
 
 export const Route = createFileRoute("/ai")({
   component: RouteComponent,
@@ -23,7 +23,7 @@ function RouteComponent() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: scroll when new message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);

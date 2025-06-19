@@ -1,8 +1,9 @@
-import { ThemeProvider } from "@base/ui/components/theme-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { type RenderOptions, render } from "@testing-library/react";
 import type React from "react";
 import type { ReactElement } from "react";
+
+import { ThemeProvider } from "@base/ui/components/theme-provider";
 
 const queryClient = new QueryClient({
   defaultOptions: {

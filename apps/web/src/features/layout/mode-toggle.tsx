@@ -1,4 +1,5 @@
 import { Moon, Sun } from "lucide-react";
+import { useState } from "react";
 
 import { Button } from "@base/ui/components/button";
 import {
@@ -10,11 +11,10 @@ import {
 import { Separator } from "@base/ui/components/separator";
 import { useTheme } from "@base/ui/components/theme-provider";
 import {
-  type ThemeName,
   setThemeColorVariables,
   setThemeMode,
+  type ThemeName,
 } from "@base/ui/themes";
-import { useState } from "react";
 
 export function ModeToggle() {
   const [current, setCurrent] = useState<ThemeName>("clay");

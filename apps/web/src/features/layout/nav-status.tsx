@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import clsx from "clsx";
 
-import { orpc } from "@/lib/orpc-client";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@base/ui/components/tooltip";
+import { orpc } from "@/lib/orpc-client";
 
 export function NavStatus() {
   const { data, isLoading } = useQuery(orpc.health.queryOptions());

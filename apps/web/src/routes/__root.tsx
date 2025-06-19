@@ -1,20 +1,21 @@
 import type { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
+  createRootRouteWithContext,
   HeadContent,
   Outlet,
-  createRootRouteWithContext,
   useRouterState,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import "@base/ui/web.css?url";
-import { Layout } from "@/features/layout";
-import type { orpc } from "@/lib/orpc-client";
+
 import { seo } from "@base/seo";
 import { Loader } from "@base/ui/components/loader";
 import { Toaster } from "@base/ui/components/sonner";
 import { ThemeProvider } from "@base/ui/components/theme-provider";
+import { Layout } from "@/features/layout";
+import type { orpc } from "@/lib/orpc-client";
 
 export interface RouterAppContext {
   orpc: typeof orpc;

@@ -1,6 +1,7 @@
 import { useForm } from "@tanstack/react-form";
 import { type } from "arktype";
 import { Camera, Save } from "lucide-react";
+import { useId } from "react";
 import { toast } from "sonner";
 
 import { getInitials } from "@base/auth/client/get-initials";
@@ -32,6 +33,7 @@ import { MicrosoftButton } from "../auth/buttons/microsoft";
 export function AccountProfileCard() {
   const { data: session } = auth.useSession();
   const initials = getInitials(session);
+  const emailId = useId();
 
   const form = useForm({
     defaultValues: {
@@ -152,10 +154,10 @@ export function AccountProfileCard() {
           <Separator />
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor={emailId}>Email Address</Label>
             <div className="flex items-center gap-2">
               <Input
-                id="email"
+                id={emailId}
                 type="email"
                 value={session?.user.email ?? ""}
                 disabled

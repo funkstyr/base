@@ -1,5 +1,3 @@
-import { queryClient } from "@/lib/orpc-client";
-import { auth } from "@base/auth/client/native";
 import { useState } from "react";
 import {
   ActivityIndicator,
@@ -8,6 +6,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+
+import { auth } from "@base/auth/client/native";
+import { queryClient } from "@/lib/orpc-client";
 
 export function SignUp() {
   const [name, setName] = useState("");

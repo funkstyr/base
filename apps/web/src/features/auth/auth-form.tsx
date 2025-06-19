@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
+import { auth } from "@base/auth/client/web";
 import SignInForm from "@/features/auth/sign-in-form";
 import SignUpForm from "@/features/auth/sign-up-form";
 import { orpc } from "@/lib/orpc-client";
-import { auth } from "@base/auth/client/web";
 
 export function AuthForm() {
   const [showSignIn, setShowSignIn] = useState(true);

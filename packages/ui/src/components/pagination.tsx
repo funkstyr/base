@@ -11,7 +11,7 @@ import { type Button, buttonVariants } from "@base/ui/components/button";
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
-      // biome-ignore lint/a11y/noRedundantRoles: <explanation>
+      // biome-ignore lint/a11y/noRedundantRoles: generated
       role="navigation"
       aria-label="pagination"
       data-slot="pagination"

@@ -1,11 +1,13 @@
 import { QueryClientProvider } from "@tanstack/react-query";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { createRouter, RouterProvider } from "@tanstack/react-router";
 import ReactDOM from "react-dom/client";
 
 import "@base/ui/web.css";
-import { orpc, queryClient } from "@/lib/orpc-client";
-import { Loader } from "@base/ui/components/loader";
+
 import * as React from "react";
+
+import { Loader } from "@base/ui/components/loader";
+import { orpc, queryClient } from "@/lib/orpc-client";
 import { routeTree } from "./routeTree.gen";
 
 const router = createRouter({

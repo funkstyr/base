@@ -1,5 +1,7 @@
 import { expect, mock, test } from "bun:test";
+
 import { render, screen } from "@/__tests__/test-utils";
+
 // import { AuthForm } from "./auth-form";
 
 mock.module("@base/auth/client/web", () => {

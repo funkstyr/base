@@ -1,5 +1,5 @@
-import { redirect } from "@tanstack/react-router";
 import type { ParsedLocation } from "@tanstack/react-router";
+import { redirect } from "@tanstack/react-router";
 
 import { auth } from "@base/auth/client/web";
 

@@ -1,4 +1,5 @@
 import { type } from "arktype";
+
 // --- CoreMessage ArkType Definitions ---
 
 // Part Types
