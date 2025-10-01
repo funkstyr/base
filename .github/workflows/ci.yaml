@@ -118,7 +118,7 @@ jobs:
               - 'packages/**'
 
       - name: 🐋 Docker Login
-        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef
         if: steps.changes.outputs.src == 'true'
         with:
           registry: ${{ env.REGISTRY }}
